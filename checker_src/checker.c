@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 21:20:01 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 01:16:49 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	checker(int argc, char **argv)
 	{
 		command = get_command(line);
 		change_dlst(a, b, command, true);
-//		debug(a, b, ps);
-//		sleep(1);
+		debug(a, b, ps);
+		sleep(1);
 		free(line);
 	}
 	if (ret < 0)
