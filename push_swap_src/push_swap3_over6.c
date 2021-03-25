@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 14:33:40 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:33:01 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,32 +99,14 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	half_set(a, b, ps);
 	while (ps->awant != ps->size)
 	{
-		printf("[start]awant:%ld, bwant:%ld\n", ps->awant, ps->bwant);
-		debug(a, b, ps);
-		sleep(1);
 		b_settle_top(a, b, ps);
-		printf("[b_settle_top]awant:%ld\n", ps->awant);
-		debug(a, b, ps);
-		sleep(1);
 		while ((size = dlst_size(b)) > SORTSIZE)
 			b_quick_sort(a, b, ps, size);
-		printf("[b_quick_sort]awant:%ld\n", ps->awant);
-		debug(a, b, ps);
-		sleep(1);
 		if (size)
 			allsort(a, b, ps, size);
-		printf("[allsort]awant:%ld\n", ps->awant);
-		debug(a, b, ps);
-		sleep(1);
 		while ((size = search_a_size(a, ps)) && size <= SORTSIZE)
 			allsort(a, b, ps, size);
-		printf("[allsort2]awant:%ld\n", ps->awant);
-		debug(a, b, ps);
-		sleep(1);
 		if (size)
 			a_quick_sort(a, b, ps, size);
-		printf("[a_quick_sort]awant:%ld\n", ps->awant);
-		debug(a, b, ps);
-		sleep(1);
 	}
 }
