@@ -6,12 +6,12 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:30:31 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 14:09:15 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:39:20 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSG_SWAP_H
-# define PUSH_SWAP_H
+# define PUSG_SWAP_H
 
 # include "./util.h"
 
