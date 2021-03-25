@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 00:00:07 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 00:17:49 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,38 +76,38 @@ void	a_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 {
 	long	i;
 	
-	i = -1;
+	i = 0;
 	printf("[a_quick_sort]%ld\n", size);
 	sleep(1);
-	while (++i < size)
+	while (i < size)
 	{
 	//	debug(a, b, ps);
 	//	printf("[a_quick_sort]\n");
 	//	sleep(1);
-		while (b->next->value == ps->awant || a->next->value == ps->awant)
+		if (b->next->value == ps->awant)
 		{
-			if (b->next->value == ps->awant)
-			{
-				pa_addans(a, b, ps, PA);
-				ra_addans(a, ps, RA);
-				ps->bwant = ++ps->awant;
-			}
-			if (a->next->value == ps->awant)
-			{
-				i++;
-				ra_addans(a, ps, RA);
-				ps->bwant = ++ps->awant;
-			}
+			pa_addans(a, b, ps, PA);
+			ra_addans(a, ps, RA);
+			ps->bwant = ++ps->awant;
 		}
-		if (a->next->next->value == ps->awant && a->next->value == ps->awant + 1)
+		else if (a->next->value == ps->awant)
+		{
+			i++;
+			ra_addans(a, ps, RA);
+			ps->bwant = ++ps->awant;
+		}
+		else if (a->next->next->value == ps->awant && a->next->value == ps->awant + 1)
 		{
 			sa_addans(a, ps, SA);
 			ra_addans(a, ps, RA);
 			ra_addans(a, ps, RA);
-			i++;
+			i += 2;
 		}
 		else
+		{	
 			pa_addans(b, a, ps, PB);
+			i++;
+		}
 	}
 }
 
