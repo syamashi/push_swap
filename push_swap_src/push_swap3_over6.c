@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 23:19:38 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:32:35 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,32 +111,32 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	half_set(a, b, ps);
 	while (ps->awant != ps->size)
 	{
-		debug(a, b, ps);
-		printf("start\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("start\n");
+//		sleep(1);
 		b_settle_top(a, b, ps);
-		debug(a, b, ps);
-		printf("b_settle\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("b_settle\n");
+//		sleep(1);
 		while ((size = dlst_size(b)) > SORTSIZE)
 			b_quick_sort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("b_quick\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("b_quick\n");
+//		sleep(1);
 		if (size)
 			allsort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("b_allsort\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("b_allsort\n");
+//		sleep(1);
 		while ((size = search_a_size(a, ps)) && size <= SORTSIZE)
 			allsort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("a_allsort\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("a_allsort\n");
+//		sleep(1);
 		if (size)
 			a_quick_sort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("end\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("end\n");
+//		sleep(1);
 	}
 }
