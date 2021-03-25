@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 17:33:01 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 19:20:46 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,16 @@ void	b_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	i = -1;
 	while (++i < size)
 	{
-		if (b->next->value == ps->awant)
+		while (b->next->value == ps->awant)
 		{
 			pa_addans(a, b, ps, PA);
 			ra_addans(a, ps, RA);
 			ps->awant++;
 			ps->bwant = ps->awant;
+			i++;
 		}
+		if (b->next->value > (ps->awant + (size - i) / 2))
+			pa_addans(a, b, ps, PA);
 		else
 			ra_addans(b, ps, RB);
 	}
@@ -74,21 +77,24 @@ void	a_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	i = -1;
 	while (++i < size)
 	{
-		if (b->next->value == ps->awant)
+		while (b->next->value == ps->awant || a->next->value == ps->awant)
 		{
-			pa_addans(a, b, ps, PA);
-			ra_addans(a, ps, RA);
-			ps->awant++;
-			ps->bwant = ps->awant;
+			if (b->next->value == ps->awant)
+			{
+				pa_addans(a, b, ps, PA);
+				ra_addans(a, ps, RA);
+				ps->awant++;
+				ps->bwant = ps->awant;
+			}
+			if (a->next->value == ps->awant)
+			{
+				i++;
+				ra_addans(a, ps, RA);
+				ps->awant++;
+				ps->bwant = ps->awant;
+			}
 		}
-		if (a->next->value == ps->awant)
-		{
-			ra_addans(a, ps, RA);
-			ps->awant++;
-			ps->bwant = ps->awant;
-		}
-		else
-			pa_addans(b, a, ps, PB);
+		pa_addans(b, a, ps, PB);
 	}
 }
 
