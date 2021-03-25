@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 23:19:44 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 01:23:20 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,9 @@ void	push_swap(long argc, char **argv)
 		allsort_less7(a, b, ps);
 	else
 		sort_over6(a, b, ps);
+	ans_print(ps->ans);
 	ans_remove_dup(ps->ans);
+	printf("\n");
 	ans_print(ps->ans);
 	dlst_clear(ps->ans);
 	free(ps);
