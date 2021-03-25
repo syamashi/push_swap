@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 23:56:57 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 00:00:07 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ long	search_a_size(t_dlst *a, t_ps *ps)
 			max = tmp->value;
 		tmp = tmp->next;
 	}
+	printf("[search_a_size] size:%ld\n", size);
+	sleep(1);
 	return (size);
 }
 
