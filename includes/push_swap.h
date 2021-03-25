@@ -6,12 +6,12 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:30:31 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 16:39:20 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:01:39 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSG_SWAP_H
-# define PUSG_SWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "./util.h"
 
@@ -37,4 +37,5 @@ void	a_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn);
 void	push_swap(long argc, char **argv);
 void	allsort_less7(t_dlst *a, t_dlst *b, t_ps *ps);
 void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps);
+
 #endif
