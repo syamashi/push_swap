@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:17:41 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 13:19:38 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 22:08:37 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,17 @@ long	partition_value(t_pair n[], long left, long right)
 	i = left;
 	j = right + 1;
 	pivot = left;
+	printf("i,j,piv:%ld %ld %ld\n", i, j, pivot);
 	while (i < j)
 	{
-		while (n[++i].value < n[pivot].value)
+		while (i < j && n[++i].value < n[pivot].value)
 			;
-		while (n[pivot].value < n[--j].value)
+		while (j && n[pivot].value < n[--j].value)
 			;
 		if (i < j)
 			ps_swap(&n[i], &n[j]);
 	}
+	printf("[aft]i,j,piv:%ld %ld %ld\n", i, j, pivot);
 	ps_swap(&n[pivot], &n[j]);
 	return (j);
 }
