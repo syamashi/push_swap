@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 19:00:53 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 19:41:24 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,13 @@ void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 	b_size = 0;
 	while (++i < ps->size)
 	{
+		while (b->next->value == ps->bwant)
+		{
+			ps->bwant++;
+			if (b_size == 1)
+				break;
+			ra_addans(b, ps, RB);
+		}
 		if (a->next->value < (ps->size / 2))
 		{
 			pa_addans(b, a, ps, PB);
@@ -109,11 +116,5 @@ void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 		}
 		else
 			ra_addans(a, ps, RA);
-		if (b->next->value == ps->bwant && b_size)
-		{
-			ps->bwant++;
-			b_size++;
-			ra_addans(b, ps, RB);
-		}
 	}
 }

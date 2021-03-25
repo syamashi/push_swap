@@ -6,7 +6,7 @@
 #    By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 14:54:21 by syamashi          #+#    #+#              #
-#    Updated: 2021/03/25 17:16:55 by syamashi         ###   ########.fr        #
+#    Updated: 2021/03/25 19:41:40 by syamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,8 @@ $(OBJDIR)%.o : $(SRCDIR)%.c
 $(NAME) : $(OBJS)
 	make -C $(LIBDIR)
 	make -C $(UTILDIR)
-	$(CC) $(CFLAGS) -I../includes -o $@ $^ -L $(LIBDIR) -L $(UTILDIR) -lutil -lft
-#	$(CC) $(CFLAGS) -I../includes -L $(LIBDIR) -L $(UTILDIR) -lutil -lft -o $@ $^
+#	$(CC) $(CFLAGS) -I../includes -o $@ $^ -L $(LIBDIR) -L $(UTILDIR) -lutil -lft
+	$(CC) $(CFLAGS) -I../includes -L $(LIBDIR) -L $(UTILDIR) -lutil -lft -o $@ $^
 
 clean :
 	make clean -C $(LIBDIR)
