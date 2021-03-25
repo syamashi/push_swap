@@ -6,12 +6,12 @@
 #    By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 14:45:49 by syamashi          #+#    #+#              #
-#    Updated: 2021/03/25 16:37:12 by syamashi         ###   ########.fr        #
+#    Updated: 2021/03/25 17:10:05 by syamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP = push_swap
-CHECKER = checkers
+CHECKER = checker
 PUSH_SWAP_DIR = ./push_swaps
 CHECKER_DIR = ./checkers
 
@@ -28,6 +28,8 @@ clean:
 fclean:
 	make -C $(CHECKER_DIR) fclean;
 	make -C $(PUSH_SWAP_DIR) fclean;
+	rm -f $(PUSH_SWAP)
+	rm -f $(CHECKER)
 
 re: fclean all
 
