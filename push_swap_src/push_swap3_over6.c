@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 00:17:49 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 00:19:15 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ long	search_a_size(t_dlst *a, t_ps *ps)
 			max = tmp->value;
 		tmp = tmp->next;
 	}
-	printf("[search_a_size] size:%ld\n", size);
+//	printf("[search_a_size] size:%ld\n", size);
 	sleep(1);
 	return (size);
 }
@@ -77,7 +77,7 @@ void	a_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	long	i;
 	
 	i = 0;
-	printf("[a_quick_sort]%ld\n", size);
+//	printf("[a_quick_sort]%ld\n", size);
 	sleep(1);
 	while (i < size)
 	{
@@ -118,32 +118,32 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	half_set(a, b, ps);
 	while (ps->awant != ps->size)
 	{
-		debug(a, b, ps);
-		printf("start\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("start\n");
+//		sleep(1);
 		b_settle_top(a, b, ps);
-		debug(a, b, ps);
-		printf("b_settle\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("b_settle\n");
+//		sleep(1);
 		while ((size = dlst_size(b)) > SORTSIZE)
 			b_quick_sort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("b_quick\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("b_quick\n");
+//		sleep(1);
 		if (size)
 			allsort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("b_allsort\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("b_allsort\n");
+//		sleep(1);
 		while ((size = search_a_size(a, ps)) && size <= SORTSIZE)
 			allsort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("a_allsort\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("a_allsort\n");
+//		sleep(1);
 		if (size)
 			a_quick_sort(a, b, ps, size);
-		debug(a, b, ps);
-		printf("end\n");
-		sleep(1);
+//		debug(a, b, ps);
+//		printf("end\n");
+//		sleep(1);
 	}
 }
