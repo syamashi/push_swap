@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 23:56:07 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:56:57 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	a_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	
 	i = -1;
 	printf("[a_quick_sort]%ld\n", size);
+	sleep(1);
 	while (++i < size)
 	{
 	//	debug(a, b, ps);
