@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 18:43:03 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 00:02:19 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,15 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	char	buf[100000];
 	long	i;
 	long	j;
+	long	turn;
 
 	ta = a->next;
 	tb = b->next;
 	ft_putstr_fd(CLEAR, 1);
 	i = 0;
 	i += ps_memcpy(buf, i, "--------A-------- --------B-------- -NEXT-\n");
-	while (ta->value != -1 || tb->value != -1)
+	turn = -1;
+	while (++turn < ps->size)
 	{
 		if (ta->value != -1)
 		{
