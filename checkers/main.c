@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_free.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 17:41:27 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 12:50:29 by syamashi         ###   ########.fr       */
+/*   Created: 2021/03/25 11:36:15 by syamashi          #+#    #+#             */
+/*   Updated: 2021/03/25 12:07:33 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/util.h"
+#include "../includes/checker.h"
+#include "../libft/libft.h"
 
-void	dlst_clear(t_dlst *a)
+int	main(int argc, char **argv)
 {
-	t_dlst	*tmp;
-
-	a->prev->next = NULL;
-	while (a)
-	{
-		tmp = a->next;
-		a->prev = NULL;
-		free(a);
-		a = tmp;
-	}
+	if (argc == 1 || argc > ARGLIMIT)
+		exit(ps_error());
+	else
+		checker(argc, argv);
+	return (0);
 }

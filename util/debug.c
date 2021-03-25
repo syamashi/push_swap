@@ -6,13 +6,11 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 09:39:04 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 11:40:08 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/util.h"
-#define STACK_WIDTH 18
-#define FLASH "\033[2J"
 
 long	ps_memcpy(char buf[], long i, char *str)
 {
@@ -61,7 +59,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 
 	ta = a->next;
 	tb = b->next;
-//	ft_putstr_fd(FLASH, 1);
+//	ft_putstr_fd(CLEAR, 1);
 	i = 0;
 	i += ps_memcpy(buf, i, "--------A-------- --------B-------- -NEXT-\n");
 	while (ta->value != -1 || tb->value != -1)

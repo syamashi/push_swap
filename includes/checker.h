@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_free.c                                         :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 17:41:27 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 12:50:29 by syamashi         ###   ########.fr       */
+/*   Created: 2021/03/25 11:35:15 by syamashi          #+#    #+#             */
+/*   Updated: 2021/03/25 14:04:22 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/util.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-void	dlst_clear(t_dlst *a)
-{
-	t_dlst	*tmp;
+#include "./util.h"
 
-	a->prev->next = NULL;
-	while (a)
-	{
-		tmp = a->next;
-		a->prev = NULL;
-		free(a);
-		a = tmp;
-	}
-}
+void	checker(int argc, char **argv);
+
+#endif

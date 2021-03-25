@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_free.c                                         :+:      :+:    :+:   */
+/*   push_swap_util2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 17:41:27 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 12:50:29 by syamashi         ###   ########.fr       */
+/*   Created: 2021/03/25 13:56:29 by syamashi          #+#    #+#             */
+/*   Updated: 2021/03/25 14:10:02 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/util.h"
+#include "../includes/push_swap.h"
 
-void	dlst_clear(t_dlst *a)
+long	dlst_size(t_dlst *b)
 {
+	long	size;
 	t_dlst	*tmp;
 
-	a->prev->next = NULL;
-	while (a)
+	size = 0;
+	tmp = b->next;
+	while (tmp->value != -1)
 	{
-		tmp = a->next;
-		a->prev = NULL;
-		free(a);
-		a = tmp;
+		size++;
+		tmp = tmp->next;
 	}
+	return (size);
 }

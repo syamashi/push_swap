@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 10:59:36 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:00:12 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,24 @@
 
 #define STDERR 2
 #define ARGLIMIT 1001
-#define SORTLIMIT 12
-#define SORTSIZE 4
-#define SA 0
-#define SB 1
-#define SS 2
-#define PA 3
-#define PB 4
+#define SORTLIMIT_LESS7 12
+#define SORTLIMIT_OVER6 15
+#define SORTSIZE 5
+#define SORT_VALUE 0
+#define SORT_ID 1
+#define PA 0
+#define PB 1
+#define SA 2
+#define SB 3
+#define SS 4
 #define RA 5
 #define RB 6
 #define RR 7
 #define RRA 8
 #define RRB 9
 #define RRR 10
+#define STACK_WIDTH 18
+#define CLEAR "\033[2J"
 
 typedef	struct	s_dlst
 {
@@ -63,8 +68,8 @@ typedef struct	s_allsort
 {
 	long	max_turn;
 	long	turn;
-	long	tmp[SORTLIMIT + 10];
-	long	ans[SORTLIMIT + 10];
+	long	tmp[SORTLIMIT_OVER6 + 10];
+	long	ans[SORTLIMIT_OVER6 + 10];
 	long	pre;
 	long	awant;
 	long	size;
@@ -74,6 +79,7 @@ typedef struct	s_allsort
 /*
 **  debug
 */
+
 void	debug(t_dlst *a, t_dlst *b, t_ps *ps);
 
 /*
@@ -83,8 +89,18 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps);
 void	dlst_clear(t_dlst *a);
 
 /*
-**  push_swap
+**  init
 */
+
+t_ps	*ps_init(long argc, char **argv);
+void	quick_sort(t_pair n[], long left, long right, long flag);
+
+/*
+**  exec
+*/
+
+bool	change_dlst(t_dlst *a, t_dlst *b, long command, bool exec);
+long	recover(long command);
 
 /*
 **  commands

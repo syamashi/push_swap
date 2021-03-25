@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_free.c                                         :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 17:41:27 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 12:50:29 by syamashi         ###   ########.fr       */
+/*   Created: 2021/03/25 13:20:54 by syamashi          #+#    #+#             */
+/*   Updated: 2021/03/25 13:35:52 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/util.h"
 
-void	dlst_clear(t_dlst *a)
+long	ps_error(void)
 {
-	t_dlst	*tmp;
-
-	a->prev->next = NULL;
-	while (a)
-	{
-		tmp = a->next;
-		a->prev = NULL;
-		free(a);
-		a = tmp;
-	}
+	ft_putstr_fd("Error\n", STDERR);
+	return (1);
 }

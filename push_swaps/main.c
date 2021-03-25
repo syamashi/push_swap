@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_free.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 17:41:27 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 12:50:29 by syamashi         ###   ########.fr       */
+/*   Created: 2021/03/22 14:57:51 by syamashi          #+#    #+#             */
+/*   Updated: 2021/03/25 11:36:42 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/util.h"
+#include "../includes/push_swap.h"
 
-void	dlst_clear(t_dlst *a)
+int	main(int argc, char **argv)
 {
-	t_dlst	*tmp;
-
-	a->prev->next = NULL;
-	while (a)
-	{
-		tmp = a->next;
-		a->prev = NULL;
-		free(a);
-		a = tmp;
-	}
+	if (argc == 1 || argc > ARGLIMIT)
+		exit(ps_error());
+	else
+		push_swap(argc, argv);
+	return (0);
 }
