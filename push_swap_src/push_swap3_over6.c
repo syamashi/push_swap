@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 19:20:46 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 21:02:48 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void	a_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 				ps->bwant = ps->awant;
 			}
 		}
+		if (a->next->next->value == ps->awant && a->next->value == ps->awant + 1)
+			sa_addans(a, ps, SA);
 		pa_addans(b, a, ps, PB);
 	}
 }
