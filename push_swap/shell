@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+        echo "[ERROR] target directory needed"
+  exit 1
+fi
+
+for filename in $(find $1 -type f -name "*.c")
+do
+        echo "SRCSBONUS += "$filename
+done
