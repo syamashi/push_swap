@@ -6,7 +6,7 @@
 #    By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 14:54:21 by syamashi          #+#    #+#              #
-#    Updated: 2021/03/25 22:23:04 by syamashi         ###   ########.fr        #
+#    Updated: 2021/03/25 23:16:52 by syamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ LIBDIR = ../libft
 UTILDIR = ../util
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g -O0
 
 all : $(OBJDIR) $(NAME)
 
@@ -44,7 +44,7 @@ $(OBJDIR)%.o : $(SRCDIR)%.c
 $(NAME) : $(OBJS)
 	make -C $(LIBDIR)
 	make -C $(UTILDIR)
-#	$(CC) $(CFLAGS) -I../includes -o $@ $^ -L $(LIBDIR) -L $(UTILDIR) -lutil -lft
+#	$(CC) $(CFLAGS) -I../includes -o $@ $^ -L $(LIBDIR) -L $(UTILDIR) -lutil -lft -fsanitize=address
 	$(CC) $(CFLAGS) -I../includes -L $(LIBDIR) -L $(UTILDIR) -lutil -lft -o $@ $^
 
 clean :

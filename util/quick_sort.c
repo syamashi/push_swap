@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:17:41 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 22:57:13 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:16:16 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ long	partition_value(t_pair n[], long left, long right)
 	i = left;
 	j = right + 1;
 	pivot = left;
-	printf("i,j,piv:%ld %ld %ld\n", i, j, pivot);
 	while (i < j)
 	{
 		while (i < j && n[++i].value < n[pivot].value)
@@ -59,7 +58,6 @@ long	partition_value(t_pair n[], long left, long right)
 		if (i < j)
 			ps_swap(&n[i], &n[j]);
 	}
-	printf("[aft]i,j,piv:%ld %ld %ld\n", i, j, pivot);
 	ps_swap(&n[pivot], &n[j]);
 	return (j);
 }
@@ -96,7 +94,6 @@ void	quick_sort(t_pair n[], long left, long right, long flag)
 			pivot = partition_value(n, left, right);
 		if (flag == SORT_ID)
 			pivot = partition_id(n, left, right);
-	printf("left:%ld right:%ld pivot:%ld\n", left, right, pivot);
 		quick_sort(n, left, pivot - 1, flag);
 		quick_sort(n, pivot + 1, right, flag);
 	}
