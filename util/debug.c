@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:43:08 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:50:00 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,17 @@ void	inversion_print(char buf[], long *i, char *str)
 	*i += ps_memcpy(buf, *i, DEFSET);
 }
 
+void	color_print(char buf[], long *i, char *str, char *color)
+{
+	*i += ps_memcpy(buf, *i, color);
+	*i += ps_memcpy(buf, *i, str);
+	*i += ps_memcpy(buf, *i, DEFCOLOR);
+}
+
 void	put_info(char buf[], long *i, t_ps *ps, long height)
 {
 	if (height == 1 && ps->cflag)
-	{
-		*i += ps_memcpy(buf, *i, GREEN);
-		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
-		*i += ps_memcpy(buf, *i, DEFCOLOR);
-	}
+		color_print(buf, i, ps->ans_next[height - 1], GREEN);
 	else if (height <= 5)
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
 	else if (height == 8)
@@ -132,13 +135,13 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	i = 0;
 	if (ps->cflag)
 	{
-		inversion_print(buf, &i, "---------A--------+--------B--------- ");
-		inversion_print(buf, &i, "--NEXT--  \n");
+		inversion_print(buf, &i, "----------A--------+--------B---------+");
+		inversion_print(buf, &i, "--NEXT--\n");
 	}
 	else
 	{
-		i += ps_memcpy(buf, i, "---------A--------+--------B--------- ");
-		i += ps_memcpy(buf, i, "--NEXT--  \n ");
+		i += ps_memcpy(buf, i, "----------A--------+--------B---------+");
+		i += ps_memcpy(buf, i, "--NEXT--\n ");
 	}
 	height = 0;
 	while (++height < TURNMAX)
@@ -161,7 +164,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 			tb = tb->next;
 		i += ps_memcpy(buf, i, "\n");
 	}
-	i += ps_memcpy(buf, i, "------------------+------------------         \n");
+	i += ps_memcpy(buf, i, "-------------------+------------------\n");
 	buf[i] = 0;
 	ft_putstr_fd(buf, 2);
 	sleep(1);
