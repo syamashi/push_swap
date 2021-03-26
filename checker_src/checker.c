@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 01:35:17 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:53:42 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,18 @@ long	get_command(char *line)
 	exit(ps_error());
 }
 
+void	printf_judge(t_dlst *a, t_dlst *b)
+{
+	if (is_sorted(a) && b->next->value == -1)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+}
+
 void	checker(int argc, char **argv)
 {
 	char	*line;
 	long	ret;
-	long	command;
 	t_ps	*ps;
 	t_dlst	*a;
 	t_dlst	*b;
@@ -51,20 +58,16 @@ void	checker(int argc, char **argv)
 	ps = ps_init(argc, argv);
 	a = make_dlst(ps);
 	b = dlst_def();
-	while ((ret = get_next_line(0, &line)) == 1)
+	while ((ret = get_next_line(0, &line)) >= 0)
 	{
-		command = get_command(line);
-		change_dlst(a, b, command, true);
-//		debug(a, b, ps);
-//		sleep(1);
+		change_dlst(a, b, get_command(line), true);
 		free(line);
+		if (!ret)
+			break;
 	}
 	if (ret < 0)
 		exit(ps_error());
-	if (is_sorted(a) && b->next->value == -1)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	print_judge(a, b);
 	dlst_clear(ps->ans);
 	free(ps);
 	dlst_clear(a);

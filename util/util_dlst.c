@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:46:36 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 00:20:15 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:02:23 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,19 @@ t_dlst	*make_dlst(t_ps *ps)
 	while (++i < ps->size)
 		dlst_addback(dlst, ps->n[i].value);
 	return (dlst);
+}
+
+long	dlst_size(t_dlst *b)
+{
+	long	size;
+	t_dlst	*tmp;
+
+	size = 0;
+	tmp = b->next;
+	while (tmp->value != -1)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
 }

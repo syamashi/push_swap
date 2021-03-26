@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_util2.c                                  :+:      :+:    :+:   */
+/*   push_swap3_over6_util2.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 13:56:29 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 14:10:02 by syamashi         ###   ########.fr       */
+/*   Created: 2021/03/26 12:12:23 by syamashi          #+#    #+#             */
+/*   Updated: 2021/03/26 12:39:05 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	dlst_size(t_dlst *b)
+void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 {
-	long	size;
-	t_dlst	*tmp;
+	long	i;
+	long	b_size;
 
-	size = 0;
-	tmp = b->next;
-	while (tmp->value != -1)
+	i = -1;
+	b_size = 0;
+	while (++i < ps->size && b_size < ps->size / 2)
 	{
-		size++;
-		tmp = tmp->next;
+		while (b->next->value == ps->bwant)
+		{
+			ps->bwant++;
+			if (b_size == 1)
+				break ;
+			ra_addans(b, ps, RB);
+		}
+		if (a->next->value < (ps->size / 2))
+		{
+			pa_addans(b, a, ps, PB);
+			b_size++;
+		}
+		else
+			ra_addans(a, ps, RA);
 	}
-	return (size);
 }

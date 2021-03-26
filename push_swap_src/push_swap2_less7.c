@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 11:01:50 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:38:08 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	if (turn >= t->max_turn)
 		return ;
 	if (b->next->value == -1 && is_sorted(a))
-		return(ans_update(turn, t));
+		return (ans_update(turn, t));
 	command = -1;
 	while (++command < 11)
 	{
@@ -48,6 +48,6 @@ void	allsort_less7(t_dlst *a, t_dlst *b, t_ps *ps)
 	}
 	t.pre = -1;
 	dfs(a, b, &t, 0);
-	ansjoin(ps, &t, a, b);
+	ansjoin(ps, &t);
 	dlst_update_ans(a, b, &t);
 }

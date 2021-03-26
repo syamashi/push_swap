@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:48:22 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 13:23:41 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:40:02 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	ps_value_init(t_ps *ps, char **argv)
 {
 	long	i;
 	char	**strs;
-	
+
 	strs = argv + 1;
 	i = -1;
-	while(++i < ps->size)
+	while (++i < ps->size)
 	{
 		ps->n[i].id = i;
 		ps->n[i].value = ps_atoi(*strs);
@@ -57,7 +57,7 @@ void	value_dup_check(t_ps *ps)
 	while (++i < ps->size - 1)
 	{
 		if (ps->n[i].value == ps->n[i + 1].value)
-			exit (ps_error());
+			exit(ps_error());
 	}
 }
 
@@ -96,12 +96,12 @@ void	convert_val_to_id(t_ps *ps)
 **  a[2] = 2 <-87
 */
 
-t_ps *ps_init(long argc, char **argv)
+t_ps	*ps_init(long argc, char **argv)
 {
 	t_ps	*ps;
 
 	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
-		exit (ps_error());
+		exit(ps_error());
 	ps->awant = 0;
 	ps->bwant = 0;
 	ps->ans = dlst_def();

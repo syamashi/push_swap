@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 12:02:05 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:03:13 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,9 @@ bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t)
 		return (true);
 	if (command == SB && (b->next->next->value >= t->fin))
 		return (true);
-	if (command == SS && (a->next->next->value >= t->fin || b->next->next->value >= t->fin))
+	if (command == SS && (a->next->next->value >= t->fin ||
+	b->next->next->value >= t->fin))
 		return (true);
-//	if (command == PA && (b->next->value >= t->fin))
-//		return (true);
-//	if (command == PB && (a->next->value >= t->fin))
-//		return (true);
 	if (command == RA && (a->next->value >= t->fin))
 		return (true);
 	if (command == RB && (b->next->value >= t->fin))
@@ -71,22 +68,16 @@ bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t)
 		return (true);
 	if (command == RRB && (b->prev->value < t->awant))
 		return (true);
-	if (command == RRR && (a->prev->value < t->awant || b->prev->value < t->awant))
+	if (command == RRR && (a->prev->value < t->awant ||
+	b->prev->value < t->awant))
 		return (true);
 	return (false);
 }
 
-void	ansjoin(t_ps *ps, t_allsort *t, t_dlst *a, t_dlst *b)
+void	ansjoin(t_ps *ps, t_allsort *t)
 {
 	long	i;
 
-	if (t->ans[0] == -1)
-	{
-		debug(a, b, ps);
-		printf("[ansjoin]No hit\n");
-		printf("awant:%ld, bwant:%ld, t.fin:%ld, t.size:%ld, t->awant:%ld\n", ps->awant, ps->bwant, t->fin, t->size, t->awant);
-		exit(1);
-	}
 	i = -1;
 	while (++i < t->max_turn)
 		dlst_addback(ps->ans, t->ans[i]);

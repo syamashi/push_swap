@@ -6,32 +6,16 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 12:02:54 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:38:59 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-bool	a_is_sorted(t_dlst *a, t_allsort *t)
-{
-	t_dlst	*dlst;
-	long	i;
-
-	dlst = a->prev;
-	i = -1;
-	while (dlst->value == t->fin - ++i)
-	{
-		if (i == t->size)
-			return (true);
-		dlst = dlst->prev;
-	}
-	return (false);
-}
-
 void	allsort_a_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 {
 	long	command;
-	
+
 	command = RA;
 	ra(a);
 	t->pre = command;
@@ -55,9 +39,8 @@ void	allsort_b_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	t->awant--;
 	rra(a);
 	pa(b, a);
-	return;
+	return ;
 }
-
 
 void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 {
@@ -91,9 +74,9 @@ long	fin_b_search(t_dlst *a, t_dlst *b, t_ps *ps)
 {
 	t_dlst	*tmpb;
 	long	ret;
-	
+
 	ret = ps->awant;
-	while(1)
+	while (1)
 	{
 		tmpb = b->next;
 		while (ret != tmpb->value && tmpb->value != -1)
@@ -126,34 +109,8 @@ void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	else
 		t.fin = size + ps->awant;
 	a_dfs(a, b, &t, 0);
-	ansjoin(ps, &t, a, b);
+	ansjoin(ps, &t);
 	dlst_update_ans(a, b, &t);
 	ps->awant = t.fin;
 	ps->bwant = t.fin;
-}
-
-void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
-{
-	long	i;
-	long	b_size;
-
-	i = -1;
-	b_size = 0;
-	while (++i < ps->size && b_size < ps->size / 2)
-	{
-		while (b->next->value == ps->bwant)
-		{
-			ps->bwant++;
-			if (b_size == 1)
-				break;
-			ra_addans(b, ps, RB);
-		}
-		if (a->next->value < (ps->size / 2))
-		{
-			pa_addans(b, a, ps, PB);
-			b_size++;
-		}
-		else
-			ra_addans(a, ps, RA);
-	}
 }
