@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 22:19:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 08:04:41 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 08:06:23 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	ans_visualize(int argc, char **argv, t_ps *ps)
 
 	vps = ps_init(argc, argv);
 	printf("[push_swap:visual]\n");
+	char **test = argv;
 	while (*test)
 	{
 		printf("%s ", *test);
