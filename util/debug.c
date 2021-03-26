@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 15:25:58 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:28:47 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ void	stack_memcpy(t_dlst *a, t_ps *ps, char buf[], long *i)
 
 void	put_info(char buf[], long *i, t_ps *ps, long height)
 {
-	if (height == 0)
-		*i += ps_memcpy(buf, *i, "-NEXT-  ");
-	else if (height <= 5)
+	if (height <= 5)
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
 	else
 		*i += ps_spacecpy(buf, *i, INFO_WIDTH);
@@ -83,8 +81,8 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	tb = b->next;
 	ft_putstr_fd(CLEAR, 2);
 	i = 0;
-	i += ps_memcpy(buf, i, "--------A-------- --------B-------- ");
-	height = -1;
+	i += ps_memcpy(buf, i, "--------A-------- --------B-------- -NEXT-  \n");
+	height = 0;
 	while (++height < TURNMAX)
 	{
 		if (ta->value != -1)
