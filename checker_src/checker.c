@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 07:50:34 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 07:57:13 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,14 @@ void	print_judge(t_dlst *a, t_dlst *b)
 		ft_putstr_fd(GREEN, 1);
 		ft_putstr_fd("OK\n", 1);
 		ft_putstr_fd(DEFCOLOR, 1);
+		ft_putstr_fd("", 1);
 	}
 	else
 	{
 		ft_putstr_fd(RED, 1);
 		ft_putstr_fd("KO\n", 1);
 		ft_putstr_fd(DEFCOLOR, 1);
+		ft_putstr_fd("", 1);
 	}
 }
 
