@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 20:03:05 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 20:10:41 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	put_turn(char buf[], long *i, long val)
 	char	tmp[8];
 	long	j;
 	long	div;
+	bool 	zero;
 
 	j = -1;
 	while (++j < 7)
@@ -73,9 +74,12 @@ void	put_turn(char buf[], long *i, long val)
 	tmp[7] = 0;
 	j = 0;
 	div = 10000;
+	zero = false;
 	while (++j < 6)
 	{
-		if (val / div)
+		if (val / div || j == 5)
+			zero = true;
+		if (zero)
 			tmp[j] = val / div + '0';
 		val %= div;
 		div /= 10;
@@ -136,13 +140,13 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	if (ps->cflag)
 	{
 		inversion_print(buf, &i, "----------A--------+--------B---------+");
-		inversion_print(buf, &i, "--NEXT--");
+		inversion_print(buf, &i, "-NEXT-");
 		i += ps_memcpy(buf, i, " ");
 	}
 	else
 	{
 		i += ps_memcpy(buf, i, "----------A--------+--------B---------+");
-		i += ps_memcpy(buf, i, "--NEXT--");
+		i += ps_memcpy(buf, i, "-NEXT-");
 	}
 	i += ps_memcpy(buf, i, "\n");
 	height = 0;
@@ -166,7 +170,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 			tb = tb->next;
 		i += ps_memcpy(buf, i, "\n");
 	}
-	i += ps_memcpy(buf, i, "-------------------+------------------\n");
+	i += ps_memcpy(buf, i, "-------------------+-------------------\n");
 	buf[i] = 0;
 	ft_putstr_fd(buf, 2);
 	sleep(1);
