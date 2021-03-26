@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 20:01:05 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 20:03:05 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	put_turn(char buf[], long *i, long val)
 	j = -1;
 	while (++j < 7)
 		tmp[j] = ' ';
-	tmp[6] = '|';
 	tmp[7] = 0;
 	j = 0;
 	div = 10000;
@@ -105,8 +104,6 @@ void	put_info(char buf[], long *i, t_ps *ps, long height)
 		color_print(buf, i, ps->ans_next[height - 1], GREEN);
 	else if (height <= 5)
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
-	else if (height == 6 || height == 12)
-		*i += ps_memcpy(buf, *i, "--------");
 	else if (height == 8)
 	{
 		if (ps->cflag)
@@ -178,13 +175,13 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 void	init_ansinfo2(t_ps *vps, t_dlst *tmp, long i)
 {
 	if (tmp->value == RR)
-		ft_memcpy(vps->ans_next[i], "  RR  |", 8);
+		ft_memcpy(vps->ans_next[i], "  RR   ", 8);
 	if (tmp->value == RRB)
-		ft_memcpy(vps->ans_next[i], " RRA  |", 8);
+		ft_memcpy(vps->ans_next[i], " RRA   ", 8);
 	if (tmp->value == RRB)
-		ft_memcpy(vps->ans_next[i], " RRB  |", 8);
+		ft_memcpy(vps->ans_next[i], " RRB   ", 8);
 	if (tmp->value == RRR)
-		ft_memcpy(vps->ans_next[i], " RRR  |", 8);
+		ft_memcpy(vps->ans_next[i], " RRR   ", 8);
 	if (tmp->value == -1)
 		ft_memcpy(vps->ans_next[i], "       ", 8);
 }
@@ -197,19 +194,19 @@ void	init_ansinfo(t_ps *vps, t_dlst *ans, long i)
 	while (++i < 5)
 	{
 		if (tmp->value == PA)
-			ft_memcpy(vps->ans_next[i], "  PA  |", 8);
+			ft_memcpy(vps->ans_next[i], "  PA   ", 8);
 		else if (tmp->value == PB)
-			ft_memcpy(vps->ans_next[i], "  PB  |", 8);
+			ft_memcpy(vps->ans_next[i], "  PB   ", 8);
 		else if (tmp->value == SA)
-			ft_memcpy(vps->ans_next[i], "  SA  |", 8);
+			ft_memcpy(vps->ans_next[i], "  SA   ", 8);
 		else if (tmp->value == SB)
-			ft_memcpy(vps->ans_next[i], "  SB  |", 8);
+			ft_memcpy(vps->ans_next[i], "  SB   ", 8);
 		else if (tmp->value == SS)
-			ft_memcpy(vps->ans_next[i], "  SS  |", 8);
+			ft_memcpy(vps->ans_next[i], "  SS   ", 8);
 		else if (tmp->value == RA)
-			ft_memcpy(vps->ans_next[i], "  RA  |", 8);
+			ft_memcpy(vps->ans_next[i], "  RA   ", 8);
 		else if (tmp->value == RB)
-			ft_memcpy(vps->ans_next[i], "  RB  |", 8);
+			ft_memcpy(vps->ans_next[i], "  RB   ", 8);
 		else
 			init_ansinfo2(vps, tmp, i);
 		if (tmp->value != -1)
