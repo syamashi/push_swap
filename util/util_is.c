@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:05:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 08:43:01 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 08:46:01 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ bool	is_sorted(t_dlst *a)
 	dlst = a;
 	while (dlst->next->value != -1)
 	{
+		printf("pre:%ld, nex:%ld\n", dlst->value, dlst->next->value);
 		if (dlst->value > dlst->next->value)
 			return (false);
 		dlst = dlst->next;
