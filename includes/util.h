@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 16:26:26 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 18:38:09 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,4 +141,5 @@ long	ps_error();
 long	ps_atoi(char *str);
 bool	is_sorted(t_dlst *a);
 long	dlst_size(t_dlst *b);
+void	get_option(long *argc, char **argv, t_ps *ps);
 #endif
