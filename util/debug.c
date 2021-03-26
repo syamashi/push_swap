@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 20:10:41 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 20:12:14 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,9 @@ void	put_info(char buf[], long *i, t_ps *ps, long height)
 	else if (height == 8)
 	{
 		if (ps->cflag)
-			inversion_print(buf, i, "--TURN-- ");
+			inversion_print(buf, i, "--TURN--");
 		else
-			*i += ps_memcpy(buf, *i, "--TURN-- ");
+			*i += ps_memcpy(buf, *i, "--TURN--");
 	}
 	else if (height == 9)
 		put_turn(buf, i, ps->ans_turn);
