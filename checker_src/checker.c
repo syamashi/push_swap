@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 12:53:42 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:38:03 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ long	get_command(char *line)
 	exit(ps_error());
 }
 
-void	printf_judge(t_dlst *a, t_dlst *b)
+void	print_judge(t_dlst *a, t_dlst *b)
 {
 	if (is_sorted(a) && b->next->value == -1)
 		write(1, "OK\n", 3);
