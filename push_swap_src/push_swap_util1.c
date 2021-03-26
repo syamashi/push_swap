@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 10:58:21 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 11:00:19 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,13 @@ bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t)
 	return (false);
 }
 
-void	ansjoin(t_ps *ps, t_allsort *t)
+void	ansjoin(t_ps *ps, t_allsort *t, t_dlst *a, t_dlst *b)
 {
 	long	i;
 
 	if (t->ans[0] == -1)
 	{
+		debug(a, b, ps);
 		printf("[ansjoin]No hit\n");
 		printf("awant:%ld, bwant:%ld\n", ps->awant, ps->bwant);
 		exit(1);
