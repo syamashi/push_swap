@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:48:22 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 23:28:56 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 23:32:55 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ t_ps	*ps_init(long argc, char **argv)
 	ps->size = argc - 1;
 	i = -1;
 	while (++i < 5)
-		ft_memcpy(ps->ans_next[i], '\0', 10);
+		ft_memcpy(ps->ans_next[i], "0", 10);
 	ps->ans_result = 0;
 	ps->ans_turn = 0;
 	ps_value_init(ps, argv);
