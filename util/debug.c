@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:54:16 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:56:34 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,8 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	{
 		inversion_print(buf, &i, "----------A--------+--------B---------+");
 		inversion_print(buf, &i, "--NEXT--");
+		i += ps_memcpy(buf, i, "aaa");
+		
 	}
 	else
 	{
