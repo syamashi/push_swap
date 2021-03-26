@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 22:19:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 22:20:35 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 08:04:41 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,12 @@ void	ans_visualize(int argc, char **argv, t_ps *ps)
 	t_dlst	*ans;
 
 	vps = ps_init(argc, argv);
+	printf("[push_swap:visual]\n");
+	while (*test)
+	{
+		printf("%s ", *test);
+		test++;
+	}
 	a = make_dlst(vps);
 	b = dlst_def();
 	vps->ans_result = dlst_size(ps->ans);

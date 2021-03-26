@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 07:52:00 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 08:03:48 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,14 @@ void	push_swap(long argc, char **argv)
 	t_dlst		*b;
 
 	ps = ps_init(argc, argv);
+	long i = 0;
+	char **test = argv;
+	printf("[push_swap]\n");
+	while (*test)
+	{
+		printf("%s ", *test);
+		test++;
+	}
 	a = make_dlst(ps);
 	b = dlst_def();
 	if (ps->size < 7)
