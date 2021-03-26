@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 20:12:14 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 22:17:26 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,7 +173,9 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	i += ps_memcpy(buf, i, "-------------------+-------------------\n");
 	buf[i] = 0;
 	ft_putstr_fd(buf, 2);
-	sleep(1);
+	long k=-1;
+	while (++k<500000)
+		ft_putstr_fd("", 2);
 }
 
 void	init_ansinfo2(t_ps *vps, t_dlst *tmp, long i)
@@ -246,7 +248,6 @@ void	ans_visualize(int argc, char **argv, t_ps *ps)
 	}
 	init_ansinfo(vps, ans, -1);
 	debug(a, b, vps);
-	ft_putstr_fd(CLEAR, 2);
 	dlst_clear(vps->ans);
 	free(vps);
 	dlst_clear(a);
