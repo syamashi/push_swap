@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 23:47:54 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 00:23:52 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ans_remove_dup(t_dlst *ans)
 		if (tmp->value == RRB && tmp->next->value == RRA)
 			dlst_replace(tmp, RRR);
 		if (tmp->value == SA && tmp->next->value == SB)
-			dlst_replace(tmp, RR);
+			dlst_replace(tmp, SS);
 		if (tmp->value == SB && tmp->next->value == SA)
 			dlst_replace(tmp, SS);
 		tmp = tmp->next;
