@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:48:22 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 18:26:14 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:09:00 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ t_ps	*ps_init(long argc, char **argv)
 
 	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
 		exit(ps_error());
-	get_option(&argc, argv, ps);
+	argv = get_option(&argc, argv, ps);
 	ps->awant = 0;
 	ps->bwant = 0;
 	ps->ans = dlst_def();

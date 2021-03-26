@@ -6,13 +6,13 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:25:28 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:04:02 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:09:57 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/util.h"
 
-void	get_option(long *argc, char **argv, t_ps *ps)
+char	**get_option(long *argc, char **argv, t_ps *ps)
 {
 	char	**strs;
 	long	i;
@@ -36,4 +36,5 @@ void	get_option(long *argc, char **argv, t_ps *ps)
 		strs = argv + 1;
 		(*argc)--;
 	}
+	return (argv);
 }
