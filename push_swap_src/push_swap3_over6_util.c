@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 21:26:18 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 10:40:27 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 
 	if (turn >= t->max_turn - (t->fin - t->awant))
 		return ;
-	if (t->awant == t->fin)
+	if (t->awant == t->fin && b->next->value == -1)
 		return(ans_update(turn, t));
 	if (a->next->value == t->awant)
 		return (a_settle_top(a, b, t, turn));
@@ -69,6 +69,25 @@ void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	}
 }
 
+long	fin_b_search(t_dlst *a, t_dlst *b, t_ps *ps)
+{
+	t_dlst	*tmpb;
+	long	ret;
+	
+	ret = ps->awant;
+	while(1)
+	{
+		tmpb = b->next;
+		while (ret != tmpb->value && tmpb->value != -1)
+			tmpb = tmpb->next;
+		if (a->next->value != ret &&
+			a->next->next->value != ret &&
+			tmpb->value != ret)
+			return (ret);
+		ret++;
+	}
+}
+
 void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 {
 	t_allsort	t;
@@ -84,7 +103,11 @@ void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	t.pre = ps->ans->prev->value;
 	t.size = size;
 	t.awant = ps->awant;
-	t.fin = size + ps->awant;
+	if (b->next->value != -1)
+		t.fin = fin_b_search(a, b, ps);
+	else
+		t.fin = size + ps->awant;
+	printf("[allsort] fin:%ld\n", t.fin);
 	a_dfs(a, b, &t, 0);
 	ansjoin(ps, &t);
 	dlst_update_ans(a, b, &t);
@@ -99,7 +122,7 @@ void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 
 	i = -1;
 	b_size = 0;
-	while (++i < ps->size)
+	while (++i < ps->size && b_size < ps->size / 2)
 	{
 		while (b->next->value == ps->bwant)
 		{
@@ -111,8 +134,7 @@ void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 		if (a->next->value < (ps->size / 2))
 		{
 			pa_addans(b, a, ps, PB);
-			if (++b_size == (ps->size / 2))
-				return ;
+			b_size++;
 		}
 		else
 			ra_addans(a, ps, RA);
