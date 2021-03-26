@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 15:34:50 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:20:01 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,12 @@ void	stack_memcpy(t_dlst *a, t_ps *ps, char buf[], long *i)
 
 void	put_info(char buf[], long *i, t_ps *ps, long height)
 {
-	if (height <= 5)
+	if (height == 1)
+	{
+		*i += ps_memcpy(buf, *i, GREEN);
+		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
+	}
+	else if (height <= 5)
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
 	else
 		*i += ps_spacecpy(buf, *i, INFO_WIDTH);
@@ -170,6 +175,7 @@ void	ans_visualize(int argc, char **argv, t_ps *ps)
 	}
 	init_ansinfo(vps, ans, -1);
 	debug(a, b, vps);
+	ft_putstr_fd(CLEAR, 2);
 	dlst_clear(vps->ans);
 	free(vps);
 	dlst_clear(a);
