@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 14:41:39 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:25:58 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,31 +61,31 @@ void	stack_memcpy(t_dlst *a, t_ps *ps, char buf[], long *i)
 	*i += ps_spacecpy(buf, *i, STACK_WIDTH - (*i - j));
 }
 
-void	put_info(t_dlst *ans)
+void	put_info(char buf[], long *i, t_ps *ps, long height)
 {
-	ft_putstr_fd("\033[2;37H", 2); /* カーソルを移動 */
-	ft_putnbr_fd(ans->value, 2);
-//	ft_putstr_fd("\033[3;37H", 2); /* カーソルを移動 */
-//	ft_putstr_fd("\033[4;37H", 2); /* カーソルを移動 */
-//	ft_putstr_fd("\033[5;37H", 2); /* カーソルを移動 */
-//	ft_putstr_fd("\033[6;37H", 2); /* カーソルを移動 */
+	if (height == 0)
+		*i += ps_memcpy(buf, *i, "-NEXT-  ");
+	else if (height <= 5)
+		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
+	else
+		*i += ps_spacecpy(buf, *i, INFO_WIDTH);
 }
 
-void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans)
+void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 {
 	t_dlst	*ta;
 	t_dlst	*tb;
 	char	buf[100000];
 	long	i;
-	long	turn;
+	long	height;
 
 	ta = a->next;
 	tb = b->next;
 	ft_putstr_fd(CLEAR, 2);
 	i = 0;
-	i += ps_memcpy(buf, i, "--------A-------- --------B-------- -NEXT-  \n");
-	turn = -1;
-	while (++turn < TURNMAX)
+	i += ps_memcpy(buf, i, "--------A-------- --------B-------- ");
+	height = -1;
+	while (++height < TURNMAX)
 	{
 		if (ta->value != -1)
 			stack_memcpy(ta, ps, buf, &i);
@@ -95,7 +95,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans)
 			stack_memcpy(tb, ps, buf, &i);
 		else
 			i += ps_spacecpy(buf, i, STACK_WIDTH);
-		i += ps_spacecpy(buf, i, INFO_WIDTH);
+		put_info(buf, &i, ps, height);
 		if (ta->value != -1)
 			ta = ta->next;
 		if (tb->value != -1)
@@ -104,8 +104,48 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans)
 	}
 	buf[i] = 0;
 	ft_putstr_fd(buf, 2);
-	put_info(ans);
 	sleep(1);
+}
+
+void	init_ansinfo2(t_ps *vps, t_dlst *ans, long i)
+{
+	if (ans->value == RRB)
+		ft_memcpy(vps->ans_next[i], " RRA   ", 8);
+	if (ans->value == RRB)
+		ft_memcpy(vps->ans_next[i], " RRB   ", 8);
+	if (ans->value == RRR)
+		ft_memcpy(vps->ans_next[i], " RRR   ", 8);
+	if (ans->value == -1)
+		ft_memcpy(vps->ans_next[i], "       ", 8);
+}
+
+void	init_ansinfo(t_ps *vps, t_dlst *ans, long i)
+{
+	t_dlst	*tmp;
+
+	tmp = ans;
+	while (++i < 5)
+	{
+		if (ans->value == PA)
+			ft_memcpy(vps->ans_next[i], "  PA   ", 8);
+		else if (ans->value == PB)
+			ft_memcpy(vps->ans_next[i], "  PB   ", 8);
+		else if (ans->value == SA)
+			ft_memcpy(vps->ans_next[i], "  SA   ", 8);
+		else if (ans->value == SB)
+			ft_memcpy(vps->ans_next[i], "  SB   ", 8);
+		else if (ans->value == SS)
+			ft_memcpy(vps->ans_next[i], "  SS   ", 8);
+		else if (ans->value == RA)
+			ft_memcpy(vps->ans_next[i], "  RA   ", 8);
+		else if (ans->value == RB)
+			ft_memcpy(vps->ans_next[i], "  RB   ", 8);
+		else if (ans->value == RR)
+			ft_memcpy(vps->ans_next[i], "  RR   ", 8);
+		else
+			init_ansinfo2(vps, ans, i);
+		tmp = tmp->next;
+	}
 }
 
 void	ans_visualize(int argc, char **argv, t_ps *ps)
@@ -121,14 +161,16 @@ void	ans_visualize(int argc, char **argv, t_ps *ps)
 	vps->ans_result = dlst_size(ps->ans);
 	vps->ans_turn = 0;
 	ans = ps->ans->next;
-	debug(a, b, vps, ans);
 	while (ans->value != -1)
 	{
+		init_ansinfo(vps, ans, -1);
+		debug(a, b, vps);
 		change_dlst(a, b, ans->value, true);
-		debug(a, b, vps, ans);
 		ans = ans->next;
 		vps->ans_turn++;
 	}
+	init_ansinfo(vps, ans, -1);
+	debug(a, b, vps);
 	dlst_clear(vps->ans);
 	free(ps);
 	dlst_clear(a);

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 14:40:48 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:25:42 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef	struct	s_ps
 	long	bwant;
 	long	ans_result;
 	long	ans_turn;
+	char	ans_next[5][10];
 }				t_ps;
 
 typedef struct	s_allsort
@@ -86,7 +87,7 @@ typedef struct	s_allsort
 **  debug
 */
 
-void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans);
+void	debug(t_dlst *a, t_dlst *b, t_ps *ps);
 void	ans_visualize(int argc, char **argv, t_ps *ps);
 
 /*
