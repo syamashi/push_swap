@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 23:23:50 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 07:50:34 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,13 @@ void	checker(int argc, char **argv)
 		debug(a, b, ps);
 	while ((ret = get_next_line(0, &line)) >= 0)
 	{
-		change_dlst(a, b, get_command(line), true);
-		ps->ans_turn++;
-		if (ps->vflag)
-			debug(a, b, ps);
+		if (*line)
+		{
+			change_dlst(a, b, get_command(line), true);
+			ps->ans_turn++;
+			if (ps->vflag)
+				debug(a, b, ps);
+		}
 		free(line);
 		if (!ret)
 			break ;
