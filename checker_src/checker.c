@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 16:21:00 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:22:14 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	print_judge(t_dlst *a, t_dlst *b)
 {
 	if (is_sorted(a) && b->next->value == -1)
 	{
-		ft_putstr_fd(1, GREEN);
-		ft_putstr_fd(1, "OK\n");
+		ft_putstr_fd(GREEN, 1);
+		ft_putstr_fd("OK\n", 1);
 	}
 	else
 	{
-		ft_putstr_fd(1, RED);
-		ft_putstr_fd(1, "KO\n");
+		ft_putstr_fd(RED, 1);
+		ft_putstr_fd("KO\n", 1);
 	}
 }
 
