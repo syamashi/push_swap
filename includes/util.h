@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:39:35 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:41:42 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@
 # define RED "\033[31m"
 # define DEFCOLOR "\033[39m"
 # define BLACK "\033[30m"
-# define INVERSION "ESC[7m"
-# define DEFSET "ESC[0m"
-# define EMPHASIZE "ESC[1m"
+# define INVERSION "\[7m"
+# define DEFSET "\[0m"
+# define EMPHASIZE "\[1m"
 # define WHITE_BACK "\033[47m"
 # define DEFCOLOR_BACK "\033[49m"
 # define TURNMAX 41
