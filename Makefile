@@ -6,7 +6,7 @@
 #    By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 14:45:49 by syamashi          #+#    #+#              #
-#    Updated: 2021/03/26 21:34:23 by syamashi         ###   ########.fr        #
+#    Updated: 2021/03/26 21:45:54 by syamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,9 @@ UTILDIR = ./util
 NAME = $(PUSH_SWAP) $(CHECKER)
 
 OBJDIR = ./obj/
-OBJS = $(PUSH_SWAP_DIR:%.c=$(OBJDIR)%.o)
-OBJS += $(CHECKER_DIR:%.c=$(OBJDIR)%.o)
+PUSH_SWAP_OBJS = $(PUSH_SWAP_DIR:%.c=$(OBJDIR)%.o)
+CHECKER_OBJS = $(CHECKER_DIR:%.c=$(OBJDIR)%.o)
+OBJS = $(PUSH_SWAP_OBJS) $(CHECKER_OBJS)
 
 SRCDIR = $(PUSH_SWAP_DIR) $(CHECKER_DIR)
 
@@ -47,12 +48,13 @@ $(NAME) : $(OBJS)
 	make -C $(LIBDIR)
 	make -C $(UTILDIR)
 #	$(CC) $(CFLAGS) -I../includes -o $@ $^ -L $(LIBDIR) -L $(UTILDIR) -lutil -lft
-	$(CC) $(CFLAGS) -I../includes -L $(LIBDIR) -L $(UTILDIR) -lutil -lft -o $@ $^
+	$(CC) $(CFLAGS) -I../includes -L $(LIBDIR) -L $(UTILDIR) -lutil -lft -o $(PUSH_SWAP) $(PUSH_SWAP_OBJS)
+	$(CC) $(CFLAGS) -I../includes -L $(LIBDIR) -L $(UTILDIR) -lutil -lft -o $(CHECKER) $(CHECKER_OBJS)
 
 clean:
 	make clean -C $(LIBDIR)
 	make clean -C $(UTILDIR)
-	rm -f $(OBJS)
+	rm -f $(POBJS) $(COBJS)
 
 fclean:
 	make fclean -C $(LIBDIR)
