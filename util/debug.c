@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 15:34:21 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:34:50 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 
 void	init_ansinfo2(t_ps *vps, t_dlst *tmp, long i)
 {
-	else if (tmp->value == RR)
+	if (tmp->value == RR)
 		ft_memcpy(vps->ans_next[i], "  RR   ", 8);
 	if (tmp->value == RRB)
 		ft_memcpy(vps->ans_next[i], " RRA   ", 8);
