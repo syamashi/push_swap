@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 23:27:36 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 00:03:21 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ARGLIMIT 1001
 # define SORTLIMIT_LESS7 12
 # define SORTLIMIT_OVER6 15
-# define SORTSIZE 4
+# define SORTSIZE 5
 # define SORT_VALUE 0
 # define SORT_ID 1
 # define PA 0
