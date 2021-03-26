@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 15:28:47 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:31:33 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,15 +105,15 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	sleep(1);
 }
 
-void	init_ansinfo2(t_ps *vps, t_dlst *ans, long i)
+void	init_ansinfo2(t_ps *vps, t_dlst *tmp, long i)
 {
-	if (ans->value == RRB)
+	if (tmp->value == RRB)
 		ft_memcpy(vps->ans_next[i], " RRA   ", 8);
-	if (ans->value == RRB)
+	if (tmp->value == RRB)
 		ft_memcpy(vps->ans_next[i], " RRB   ", 8);
-	if (ans->value == RRR)
+	if (tmp->value == RRR)
 		ft_memcpy(vps->ans_next[i], " RRR   ", 8);
-	if (ans->value == -1)
+	if (tmp->value == -1)
 		ft_memcpy(vps->ans_next[i], "       ", 8);
 }
 
@@ -124,24 +124,24 @@ void	init_ansinfo(t_ps *vps, t_dlst *ans, long i)
 	tmp = ans;
 	while (++i < 5)
 	{
-		if (ans->value == PA)
+		if (tmp->value == PA)
 			ft_memcpy(vps->ans_next[i], "  PA   ", 8);
-		else if (ans->value == PB)
+		else if (tmp->value == PB)
 			ft_memcpy(vps->ans_next[i], "  PB   ", 8);
-		else if (ans->value == SA)
+		else if (tmp->value == SA)
 			ft_memcpy(vps->ans_next[i], "  SA   ", 8);
-		else if (ans->value == SB)
+		else if (tmp->value == SB)
 			ft_memcpy(vps->ans_next[i], "  SB   ", 8);
-		else if (ans->value == SS)
+		else if (tmp->value == SS)
 			ft_memcpy(vps->ans_next[i], "  SS   ", 8);
-		else if (ans->value == RA)
+		else if (tmp->value == RA)
 			ft_memcpy(vps->ans_next[i], "  RA   ", 8);
-		else if (ans->value == RB)
+		else if (tmp->value == RB)
 			ft_memcpy(vps->ans_next[i], "  RB   ", 8);
-		else if (ans->value == RR)
+		else if (tmp->value == RR)
 			ft_memcpy(vps->ans_next[i], "  RR   ", 8);
 		else
-			init_ansinfo2(vps, ans, i);
+			init_ansinfo2(vps, tmp, i);
 		tmp = tmp->next;
 	}
 }
