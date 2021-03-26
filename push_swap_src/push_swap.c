@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 00:23:52 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 07:52:00 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void	ans_print(t_dlst *ans)
 	{
 		command_putout(tmp->value);
 		tmp = tmp->next;
-		if (tmp->value != -1)
-			ft_putstr_fd("\n", 1);
+		ft_putstr_fd("\n", 1);
 	}
 }
 
