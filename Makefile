@@ -6,7 +6,7 @@
 #    By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 14:45:49 by syamashi          #+#    #+#              #
-#    Updated: 2021/03/26 21:45:54 by syamashi         ###   ########.fr        #
+#    Updated: 2021/03/26 21:47:09 by syamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ UTILDIR = ./util
 NAME = $(PUSH_SWAP) $(CHECKER)
 
 OBJDIR = ./obj/
-PUSH_SWAP_OBJS = $(PUSH_SWAP_DIR:%.c=$(OBJDIR)%.o)
-CHECKER_OBJS = $(CHECKER_DIR:%.c=$(OBJDIR)%.o)
+PUSH_SWAP_OBJS = $(PUSH_SWAP_DIR):%.c=$(OBJDIR)%.o)
+CHECKER_OBJS = $(CHECKER_DIR):%.c=$(OBJDIR)%.o)
 OBJS = $(PUSH_SWAP_OBJS) $(CHECKER_OBJS)
 
 SRCDIR = $(PUSH_SWAP_DIR) $(CHECKER_DIR)
