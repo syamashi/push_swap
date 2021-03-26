@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:03:24 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:40:10 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,23 +83,36 @@ void	put_turn(char buf[], long *i, long val)
 	*i += ps_memcpy(buf, *i, tmp);
 }
 
+void	inversion_print(char buf[], long *i, char *str)
+{
+	*i += ps_memcpy(buf, *i, INVERSION);
+	*i += ps_memcpy(buf, *i, EMPHASIZE);
+	*i += ps_memcpy(buf, *i, str);
+	*i += ps_memcpy(buf, *i, DEFSET);
+}
+
 void	put_info(char buf[], long *i, t_ps *ps, long height)
 {
 	if (height == 1 && ps->cflag)
 	{
 		*i += ps_memcpy(buf, *i, GREEN);
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
-		*i += ps_memcpy(buf, *i, WHITE);
+		*i += ps_memcpy(buf, *i, DEFCOLOR);
 	}
 	else if (height <= 5)
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
-	else if (height == 7)
-		*i += ps_memcpy(buf, *i, "-TURN-  ");
 	else if (height == 8)
-		put_turn(buf, i, ps->ans_turn);
+	{
+		if (ps->vflag)
+			inversion_print(buf, i, "--TURN-- ");
+		else
+			*i += ps_memcpy(buf, *i, "--TURN-- ");
+	}
 	else if (height == 9)
-		*i += ps_memcpy(buf, *i, " ----- ");
+		put_turn(buf, i, ps->ans_turn);
 	else if (height == 10)
+		*i += ps_memcpy(buf, *i, " ----- ");
+	else if (height == 11)
 		put_turn(buf, i, ps->ans_result);
 	else
 		*i += ps_spacecpy(buf, *i, INFO_WIDTH);
@@ -117,18 +130,30 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	tb = b->next;
 	ft_putstr_fd(CLEAR, 2);
 	i = 0;
-	i += ps_memcpy(buf, i, "--------A-------- --------B-------- -NEXT-  \n");
+	if (ps->cflag)
+	{
+		inversion_print(buf, &i, "---------A--------+--------B--------- ");
+		inversion_print(buf, &i, "--NEXT--  \n");
+	}
+	else
+	{
+		i += ps_memcpy(buf, i, "---------A--------+--------B--------- ");
+		i += ps_memcpy(buf, i, "--NEXT--  \n ");
+	}
 	height = 0;
 	while (++height < TURNMAX)
 	{
+		i += ps_memcpy(buf, i, "|");
 		if (ta->value != -1)
 			stack_memcpy(ta, ps, buf, &i);
 		else
 			i += ps_spacecpy(buf, i, STACK_WIDTH);
+		i += ps_memcpy(buf, i, "|");
 		if (tb->value != -1)
 			stack_memcpy(tb, ps, buf, &i);
 		else
 			i += ps_spacecpy(buf, i, STACK_WIDTH);
+		i += ps_memcpy(buf, i, "|");
 		put_info(buf, &i, ps, height);
 		if (ta->value != -1)
 			ta = ta->next;
@@ -136,6 +161,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 			tb = tb->next;
 		i += ps_memcpy(buf, i, "\n");
 	}
+	i += ps_memcpy(buf, i, "------------------+------------------         \n");
 	buf[i] = 0;
 	ft_putstr_fd(buf, 2);
 	sleep(1);
