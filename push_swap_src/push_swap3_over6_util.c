@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 11:02:51 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:02:54 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	a_is_sorted(t_dlst *a, t_allsort *t)
 	return (false);
 }
 
-void	a_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
+void	allsort_a_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 {
 	long	command;
 	
@@ -43,6 +43,22 @@ void	a_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	return ;
 }
 
+void	allsort_b_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
+{
+	pa(a, b);
+	t->tmp[turn] = PA;
+	ra(a);
+	t->pre = RA;
+	t->tmp[turn + 1] = RA;
+	t->awant++;
+	a_dfs(a, b, t, turn + 2);
+	t->awant--;
+	rra(a);
+	pa(b, a);
+	return;
+}
+
+
 void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 {
 	long	command;
@@ -50,9 +66,11 @@ void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	if (turn >= t->max_turn - (t->fin - t->awant))
 		return ;
 	if (t->awant == t->fin && b->next->value == -1)
-		return(ans_update(turn, t));
+		return (ans_update(turn, t));
 	if (a->next->value == t->awant)
-		return (a_settle_top(a, b, t, turn));
+		return (allsort_a_settle_top(a, b, t, turn));
+	if (b->next->value == t->awant)
+		return (allsort_b_settle_top(a, b, t, turn));
 	command = -1;
 	while (++command < 11)
 	{

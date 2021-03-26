@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 11:38:45 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:02:05 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t)
 		return (true);
 	if (command == SS && (a->next->next->value >= t->fin || b->next->next->value >= t->fin))
 		return (true);
-	if (command == PA && (b->next->value >= t->fin))
-		return (true);
-	if (command == PB && (a->next->value >= t->fin))
-		return (true);
+//	if (command == PA && (b->next->value >= t->fin))
+//		return (true);
+//	if (command == PB && (a->next->value >= t->fin))
+//		return (true);
 	if (command == RA && (a->next->value >= t->fin))
 		return (true);
 	if (command == RB && (b->next->value >= t->fin))
