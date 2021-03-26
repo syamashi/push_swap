@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 11:00:19 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 11:38:45 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ansjoin(t_ps *ps, t_allsort *t, t_dlst *a, t_dlst *b)
 	{
 		debug(a, b, ps);
 		printf("[ansjoin]No hit\n");
-		printf("awant:%ld, bwant:%ld\n", ps->awant, ps->bwant);
+		printf("awant:%ld, bwant:%ld, t.fin:%ld, t.size:%ld, t->awant:%ld\n", ps->awant, ps->bwant, t->fin, t->size, t->awant);
 		exit(1);
 	}
 	i = -1;
