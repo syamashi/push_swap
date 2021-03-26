@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 14:32:28 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:40:58 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ long	ps_nbrcpy(char buf[], long i, long n)
 }
 
 /*
-**  17 + 1 + 17 + 1 + 6 + 1 = 43
-**  --------A-------- --------B-------- -NEXT-\n
+**  17 + 1 + 17 + 1 + 8 + 1 = 45
+**  --------A-------- --------B-------- -NEXT-  \n
 */
 
 void	stack_memcpy(t_dlst *a, t_ps *ps, char buf[], long *i)
@@ -65,10 +65,10 @@ void	put_info(t_dlst *ans)
 {
 	ft_putstr_fd("\033[2;37H", 2); /* カーソルを移動 */
 	ft_putnbr_fd(ans->value, 2);
-	ft_putstr_fd("\033[3;37H", 2); /* カーソルを移動 */
-	ft_putstr_fd("\033[4;37H", 2); /* カーソルを移動 */
-	ft_putstr_fd("\033[5;37H", 2); /* カーソルを移動 */
-	ft_putstr_fd("\033[6;37H", 2); /* カーソルを移動 */
+//	ft_putstr_fd("\033[3;37H", 2); /* カーソルを移動 */
+//	ft_putstr_fd("\033[4;37H", 2); /* カーソルを移動 */
+//	ft_putstr_fd("\033[5;37H", 2); /* カーソルを移動 */
+//	ft_putstr_fd("\033[6;37H", 2); /* カーソルを移動 */
 }
 
 void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans)
@@ -83,7 +83,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans)
 	tb = b->next;
 	ft_putstr_fd(CLEAR, 2);
 	i = 0;
-	i += ps_memcpy(buf, i, "--------A-------- --------B-------- -NEXT-\n");
+	i += ps_memcpy(buf, i, "--------A-------- --------B-------- -NEXT-  \n");
 	turn = -1;
 	while (++turn < TURNMAX)
 	{
@@ -95,6 +95,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans)
 			stack_memcpy(tb, ps, buf, &i);
 		else
 			i += ps_spacecpy(buf, i, STACK_WIDTH);
+		i += ps_spacecpy(buf, i, )
 		if (ta->value != -1)
 			ta = ta->next;
 		if (tb->value != -1)

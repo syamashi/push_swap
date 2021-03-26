@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 14:32:06 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:40:48 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define RRB 9
 # define RRR 10
 # define STACK_WIDTH 18
+# define INFO_WIDTH 8
 # define CLEAR "\033[2J"
 # define GREEN "\033[32m"
 # define RED "\033[31m"
