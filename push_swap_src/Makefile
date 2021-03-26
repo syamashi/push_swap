@@ -6,7 +6,7 @@
 #    By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 14:54:21 by syamashi          #+#    #+#              #
-#    Updated: 2021/03/26 23:31:18 by syamashi         ###   ########.fr        #
+#    Updated: 2021/03/27 07:48:14 by syamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBDIR = ../libft
 UTILDIR = ../util
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g -O0
+CFLAGS = -Wall -Werror -Wextra
 
 all : $(OBJDIR) $(NAME)
 
