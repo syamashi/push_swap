@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 15:31:33 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:34:21 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 
 void	init_ansinfo2(t_ps *vps, t_dlst *tmp, long i)
 {
+	else if (tmp->value == RR)
+		ft_memcpy(vps->ans_next[i], "  RR   ", 8);
 	if (tmp->value == RRB)
 		ft_memcpy(vps->ans_next[i], " RRA   ", 8);
 	if (tmp->value == RRB)
@@ -138,11 +140,10 @@ void	init_ansinfo(t_ps *vps, t_dlst *ans, long i)
 			ft_memcpy(vps->ans_next[i], "  RA   ", 8);
 		else if (tmp->value == RB)
 			ft_memcpy(vps->ans_next[i], "  RB   ", 8);
-		else if (tmp->value == RR)
-			ft_memcpy(vps->ans_next[i], "  RR   ", 8);
 		else
 			init_ansinfo2(vps, tmp, i);
-		tmp = tmp->next;
+		if (tmp->value != -1)
+			tmp = tmp->next;
 	}
 }
 
@@ -170,7 +171,7 @@ void	ans_visualize(int argc, char **argv, t_ps *ps)
 	init_ansinfo(vps, ans, -1);
 	debug(a, b, vps);
 	dlst_clear(vps->ans);
-	free(ps);
+	free(vps);
 	dlst_clear(a);
 	dlst_clear(b);
 }
