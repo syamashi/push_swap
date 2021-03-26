@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 07:57:13 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 08:16:59 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void	print_judge(t_dlst *a, t_dlst *b)
 	if (is_sorted(a) && b->next->value == -1)
 	{
 		ft_putstr_fd(GREEN, 1);
-		ft_putstr_fd("OK\n", 1);
+		ft_putstr_fd("OK", 1);
 		ft_putstr_fd(DEFCOLOR, 1);
-		ft_putstr_fd("", 1);
+		ft_putstr_fd("\n", 1);
 	}
 	else
 	{
 		ft_putstr_fd(RED, 1);
-		ft_putstr_fd("KO\n", 1);
+		ft_putstr_fd("KO", 1);
 		ft_putstr_fd(DEFCOLOR, 1);
-		ft_putstr_fd("", 1);
+		ft_putstr_fd("\n", 1);
 	}
 }
 
@@ -79,7 +79,7 @@ void	checker(int argc, char **argv)
 			if (ps->vflag)
 				debug(a, b, ps);
 		}
-		free(line);
+			free(line);
 		if (!ret)
 			break ;
 	}
