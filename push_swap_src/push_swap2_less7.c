@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 14:25:49 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 11:01:50 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	allsort_less7(t_dlst *a, t_dlst *b, t_ps *ps)
 	}
 	t.pre = -1;
 	dfs(a, b, &t, 0);
-	ansjoin(ps, &t);
+	ansjoin(ps, &t, a, b);
 	dlst_update_ans(a, b, &t);
 }
