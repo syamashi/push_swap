@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 10:59:48 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 11:02:51 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	else
 		t.fin = size + ps->awant;
 	a_dfs(a, b, &t, 0);
-	ansjoin(ps, &t);
+	ansjoin(ps, &t, a, b);
 	dlst_update_ans(a, b, &t);
 	ps->awant = t.fin;
 	ps->bwant = t.fin;
