@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 15:25:42 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:26:26 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define CLEAR "\033[2J"
 # define GREEN "\033[32m"
 # define RED "\033[31m"
+# define WHITE "\033[39m"
 # define TURNMAX 41
 
 typedef	struct	s_dlst
@@ -69,6 +70,8 @@ typedef	struct	s_ps
 	long	ans_result;
 	long	ans_turn;
 	char	ans_next[5][10];
+	bool	vflag;
+	bool	cflag;
 }				t_ps;
 
 typedef struct	s_allsort

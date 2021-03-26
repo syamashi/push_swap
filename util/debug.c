@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 16:20:01 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 18:14:14 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,46 @@ void	stack_memcpy(t_dlst *a, t_ps *ps, char buf[], long *i)
 	*i += ps_spacecpy(buf, *i, STACK_WIDTH - (*i - j));
 }
 
+void	put_turn(char buf[], long *i, long val)
+{
+	char	tmp[8];
+	long	j;
+	long	div;
+
+	j = -1;
+	while (++j < 7)
+		tmp[j] = ' ';
+	tmp[7] = 0;
+	j = 0;
+	div = 10000;
+	while (++j < 6)
+	{
+		if (val / div)
+			tmp[j] = val / div + '0';
+		val %= div;
+		div /= 10;
+	}
+	*i += ps_memcpy(buf, *i, tmp);
+}
+
 void	put_info(char buf[], long *i, t_ps *ps, long height)
 {
-	if (height == 1)
+	if (height == 1 && ps->cflag)
 	{
 		*i += ps_memcpy(buf, *i, GREEN);
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
+		*i += ps_memcpy(buf, *i, WHITE);
 	}
 	else if (height <= 5)
 		*i += ps_memcpy(buf, *i, ps->ans_next[height - 1]);
+	else if (height == 7)
+		*i += ps_memcpy(buf, *i, "-TURN-  ");
+	else if (height == 8)
+		put_turn(buf, i, ps->ans_turn);
+	else if (height == 9)
+		*i += ps_memcpy(buf, *i, " ----  ");
+	else if (height == 10)
+		put_turn(buf, i, ps->ans_result);
 	else
 		*i += ps_spacecpy(buf, *i, INFO_WIDTH);
 }
@@ -152,6 +183,14 @@ void	init_ansinfo(t_ps *vps, t_dlst *ans, long i)
 	}
 }
 
+void	print_operation(t_dlst *a, t_dlst *b, t_ps *vps, t_dlst *ans)
+{
+	init_ansinfo(vps, ans, -1);
+	debug(a, b, vps);
+	change_dlst(a, b, ans->value, true);
+	vps->ans_turn++;
+}
+
 void	ans_visualize(int argc, char **argv, t_ps *ps)
 {
 	t_ps	*vps;
@@ -167,11 +206,8 @@ void	ans_visualize(int argc, char **argv, t_ps *ps)
 	ans = ps->ans->next;
 	while (ans->value != -1)
 	{
-		init_ansinfo(vps, ans, -1);
-		debug(a, b, vps);
-		change_dlst(a, b, ans->value, true);
+		print_operation(a, b, vps, ans);
 		ans = ans->next;
-		vps->ans_turn++;
 	}
 	init_ansinfo(vps, ans, -1);
 	debug(a, b, vps);
