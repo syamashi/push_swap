@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:30:31 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 17:01:39 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 11:01:20 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool	avoid_check(long command, t_allsort *t);
 bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t);
 void	ans_update(long turn, t_allsort *t);
 void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size);
-void	ansjoin(t_ps *ps, t_allsort *t);
+void	ansjoin(t_ps *ps, t_allsort *t, t_dlst *a, t_dlst *b);
 void	dlst_update_ans(t_dlst *a, t_dlst *b, t_allsort *t);
 long	dlst_size(t_dlst *b);
 void	half_set(t_dlst *a, t_dlst *b, t_ps *ps);
