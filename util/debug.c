@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 14:40:58 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:41:39 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps, t_dlst *ans)
 			stack_memcpy(tb, ps, buf, &i);
 		else
 			i += ps_spacecpy(buf, i, STACK_WIDTH);
-		i += ps_spacecpy(buf, i, )
+		i += ps_spacecpy(buf, i, INFO_WIDTH);
 		if (ta->value != -1)
 			ta = ta->next;
 		if (tb->value != -1)
