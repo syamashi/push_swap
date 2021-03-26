@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:43:47 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 23:27:36 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ARGLIMIT 1001
 # define SORTLIMIT_LESS7 12
 # define SORTLIMIT_OVER6 15
-# define SORTSIZE 5
+# define SORTSIZE 4
 # define SORT_VALUE 0
 # define SORT_ID 1
 # define PA 0
@@ -96,56 +96,65 @@ typedef struct	s_allsort
 **  debug
 */
 
-void	debug(t_dlst *a, t_dlst *b, t_ps *ps);
-void	ans_visualize(int argc, char **argv, t_ps *ps);
+void			debug(t_dlst *a, t_dlst *b, t_ps *ps);
+void			ans_visualize(int argc, char **argv, t_ps *ps);
+long			ps_memcpy(char buf[], long i, char *str);
+long			ps_spacecpy(char buf[], long i, long len);
+long			ps_nbrcpy(char buf[], long i, long n);
+void			inversion_print(char buf[], long *i, char *str);
+void			color_print(char buf[], long *i, char *str, char *color);
+void			put_info(char buf[], long *i, t_ps *ps, long height);
+void			put_turn(char buf[], long *i, long val);
+void			stack_memcpy(t_dlst *a, t_ps *ps, char buf[], long *i);
 
 /*
 **  all_free
 */
 
-void	dlst_clear(t_dlst *a);
+void			all_free(t_dlst *a, t_dlst *b, t_ps *ps);
+void			dlst_clear(t_dlst *a);
 
 /*
 **  init
 */
 
-t_ps	*ps_init(long argc, char **argv);
-void	quick_sort(t_pair n[], long left, long right, long flag);
+t_ps			*ps_init(long argc, char **argv);
+void			quick_sort(t_pair n[], long left, long right, long flag);
 
 /*
 **  exec
 */
 
-bool	change_dlst(t_dlst *a, t_dlst *b, long command, bool exec);
-long	recover(long command);
+bool			change_dlst(t_dlst *a, t_dlst *b, long command, bool exec);
+long			recover(long command);
 
 /*
 **  commands
 */
 
-bool	sa(t_dlst *a);
-bool	pa(t_dlst *a, t_dlst *b);
-bool	ra(t_dlst *a);
-bool	rra(t_dlst *a);
-bool	rr(t_dlst *a, t_dlst *b);
-bool	rrr(t_dlst *a, t_dlst *b);
-void	dlst_addback(t_dlst *dlst, long value);
-t_dlst	*dlst_def(void);
-bool	sa_addans(t_dlst *a, t_ps *ps, long command);
-bool	pa_addans(t_dlst *a, t_dlst *b, t_ps *ps, long command);
-bool	ra_addans(t_dlst *a, t_ps *ps, long command);
-bool	rra_addans(t_dlst *a, t_ps *ps, long command);
-bool	rr_addans(t_dlst *a, t_dlst *b, t_ps *ps, long command);
-bool	rrr_addans(t_dlst *a, t_dlst *b, t_ps *ps, long command);
+bool			sa(t_dlst *a);
+bool			pa(t_dlst *a, t_dlst *b);
+bool			ra(t_dlst *a);
+bool			rra(t_dlst *a);
+bool			rr(t_dlst *a, t_dlst *b);
+bool			rrr(t_dlst *a, t_dlst *b);
+void			dlst_addback(t_dlst *dlst, long value);
+t_dlst			*dlst_def(void);
+bool			sa_addans(t_dlst *a, t_ps *ps, long command);
+bool			pa_addans(t_dlst *a, t_dlst *b, t_ps *ps, long command);
+bool			ra_addans(t_dlst *a, t_ps *ps, long command);
+bool			rra_addans(t_dlst *a, t_ps *ps, long command);
+bool			rr_addans(t_dlst *a, t_dlst *b, t_ps *ps, long command);
+bool			rrr_addans(t_dlst *a, t_dlst *b, t_ps *ps, long command);
 
 /*
 **  others
 */
 
-t_dlst	*make_dlst(t_ps *ps);
-long	ps_error();
-long	ps_atoi(char *str);
-bool	is_sorted(t_dlst *a);
-long	dlst_size(t_dlst *b);
-char	**get_option(long *argc, char **argv, t_ps *ps);
+t_dlst			*make_dlst(t_ps *ps);
+long			ps_error();
+long			ps_atoi(char *str);
+bool			is_sorted(t_dlst *a);
+long			dlst_size(t_dlst *b);
+char			**get_option(long *argc, char **argv, t_ps *ps);
 #endif

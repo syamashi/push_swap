@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:48:22 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 20:04:36 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 23:28:56 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ void	ps_value_init(t_ps *ps, char **argv)
 		ps->n[i].id = i;
 		ps->n[i].value = ps_atoi(*strs);
 		strs++;
+	}
+	--i;
+	while (++i < ARGLIMIT)
+	{
+		ps->n[i].id = i;
+		ps->n[i].value = 0;
 	}
 }
 
@@ -99,6 +105,7 @@ void	convert_val_to_id(t_ps *ps)
 t_ps	*ps_init(long argc, char **argv)
 {
 	t_ps	*ps;
+	long	i;
 
 	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
 		exit(ps_error());
@@ -107,6 +114,11 @@ t_ps	*ps_init(long argc, char **argv)
 	ps->bwant = 0;
 	ps->ans = dlst_def();
 	ps->size = argc - 1;
+	i = -1;
+	while (++i < 5)
+		ft_memcpy(ps->ans_next[i], '\0', 10);
+	ps->ans_result = 0;
+	ps->ans_turn = 0;
 	ps_value_init(ps, argv);
 	quick_sort(ps->n, 0, ps->size - 1, SORT_VALUE);
 	value_dup_check(ps);
