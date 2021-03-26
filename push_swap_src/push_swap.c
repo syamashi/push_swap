@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:02:59 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 23:47:54 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 void	command_putout(long command)
 {
 	if (command == SA)
-		write(1, "sa\n", 3);
+		write(1, "sa", 2);
 	if (command == SB)
-		write(1, "sb\n", 3);
+		write(1, "sb", 2);
 	if (command == SS)
-		write(1, "ss\n", 3);
+		write(1, "ss", 2);
 	if (command == PA)
-		write(1, "pa\n", 3);
+		write(1, "pa", 2);
 	if (command == PB)
-		write(1, "pb\n", 3);
+		write(1, "pb", 2);
 	if (command == RA)
-		write(1, "ra\n", 3);
+		write(1, "ra", 2);
 	if (command == RB)
-		write(1, "rb\n", 3);
+		write(1, "rb", 2);
 	if (command == RR)
-		write(1, "rr\n", 3);
+		write(1, "rr", 2);
 	if (command == RRA)
-		write(1, "rra\n", 4);
+		write(1, "rra", 3);
 	if (command == RRB)
-		write(1, "rrb\n", 4);
+		write(1, "rrb", 3);
 	if (command == RRR)
-		write(1, "rrr\n", 4);
+		write(1, "rrr", 3);
 }
 
 void	ans_print(t_dlst *ans)
@@ -47,6 +47,8 @@ void	ans_print(t_dlst *ans)
 	{
 		command_putout(tmp->value);
 		tmp = tmp->next;
+		if (tmp->value != -1)
+			ft_putstr_fd("\n", 1);
 	}
 }
 
