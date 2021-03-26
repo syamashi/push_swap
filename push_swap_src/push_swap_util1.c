@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 10:57:56 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 10:58:21 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ansjoin(t_ps *ps, t_allsort *t)
 	{
 		printf("[ansjoin]No hit\n");
 		printf("awant:%ld, bwant:%ld\n", ps->awant, ps->bwant);
-		exit();
+		exit(1);
 	}
 	i = -1;
 	while (++i < t->max_turn)
