@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 13:52:02 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:02:59 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ void	push_swap(long argc, char **argv)
 	else
 		sort_over6(a, b, ps);
 	ans_remove_dup(ps->ans);
-	ans_visualize(argc, argv, ps);
+	if (ps->vflag)
+		ans_visualize(argc, argv, ps);
 	ans_print(ps->ans);
 	dlst_clear(ps->ans);
 	free(ps);

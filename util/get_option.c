@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:25:28 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 18:47:05 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:04:02 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	get_option(long *argc, char **argv, t_ps *ps)
 			else
 				exit(ps_error());
 		}
-		(*strs)++;
-		(*argv)++;
+		argv++;
+		strs = argv + 1;
 		(*argc)--;
 	}
 }
