@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 16:15:54 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:16:41 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	ans_update(long turn, t_allsort *t)
 
 bool	avoid_check(long command, t_allsort *t)
 {
-	if (command == SA && (t->pre == SA ))
+	if (command == SA && (t->pre == SA || t->pre == SB || t->pre == SS))
 		return (true);
-	if (command == SB && (t->pre == SB))
+	if (command == SB && (t->pre == SA || t->pre == SB || t->pre == SS))
 		return (true);
-	if (command == SS && (t->pre == SS))
+	if (command == SS && (t->pre == SA || t->pre == SB || t->pre == SS))
 		return (true);
 	if (command == PA && (t->pre == PB))
 		return (true);
