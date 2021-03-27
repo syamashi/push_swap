@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 16:23:02 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:24:33 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,7 @@ void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 
 	if (turn >= t->max_turn - (t->fin - t->awant))
 		return ;
-	if (t->fin == 98)
-	{
-		ft_putstr_fd("turn:", 2);
-		ft_putnbr_fd(turn, 2);
-		ft_putstr_fd(" t->awant:", 2);
-		ft_putnbr_fd(t->awant, 2);
-		ft_putstr_fd("\n", 2);
-	}
-	if (t->awant == t->fin && b->next->value == -1)
+	if (t->awant >= t->fin && b->next->value == -1)
 		return (ans_update(turn, t));
 	if (a->next->value == t->awant)
 		return (allsort_a_settle_top(a, b, t, turn));
@@ -110,9 +102,9 @@ void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 		t.fin = fin_b_search(a, b, ps);
 	else
 		t.fin = size + ps->awant;
-	ft_putstr_fd("t.fin:",2);
-	ft_putnbr_fd(t.fin,2);
-	ft_putstr_fd("\n",2);
+//	ft_putstr_fd("t.fin:",2);
+//	ft_putnbr_fd(t.fin,2);
+//	ft_putstr_fd("\n",2);
 	a_dfs(a, b, &t, 0);
 	ansjoin(ps, &t);
 	dlst_update_ans(a, b, &t);
