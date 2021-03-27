@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/26 12:38:59 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:34:27 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,7 @@ void	allsort_b_settle_top(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 {
 	pa(a, b);
 	t->tmp[turn] = PA;
-	ra(a);
-	t->pre = RA;
-	t->tmp[turn + 1] = RA;
-	t->awant++;
-	a_dfs(a, b, t, turn + 2);
-	t->awant--;
-	rra(a);
+	a_dfs(a, b, t, turn + 1);
 	pa(b, a);
 	return ;
 }
@@ -59,8 +53,8 @@ void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	{
 		if (avoid_check(command, t) || turn >= t->max_turn)
 			continue;
-		if (disturb_check(a, b, command, t))
-			continue;
+//		if (disturb_check(a, b, command, t))
+//			continue;
 		if (change_dlst(a, b, command, true))
 			continue;
 		t->pre = command;

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 13:14:00 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:34:04 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,27 @@ void	ans_update(long turn, t_allsort *t)
 
 bool	avoid_check(long command, t_allsort *t)
 {
-	if (command == SA && (t->pre == SA))
+	if (command == SA && (t->pre == SA || t->pre == SB || t->pre == SS))
 		return (true);
-	if (command == SB && (t->pre == SB))
+	if (command == SB && (t->pre == SA || t->pre == SB || t->pre == SS))
 		return (true);
-	if (command == SS && (t->pre == SS))
+	if (command == SS && (t->pre == SA || t->pre == SB || t->pre == SS))
 		return (true);
 	if (command == PA && (t->pre == PB))
 		return (true);
 	if (command == PB && (t->pre == PA))
 		return (true);
-	if (command == RA && (t->pre == RRA))
+	if (command == RA && (t->pre == RRA || t->pre == RRR))
 		return (true);
-	if (command == RB && (t->pre == RRB))
+	if (command == RB && (t->pre == RRB || t->pre == RRR))
 		return (true);
-	if (command == RR && (t->pre == RRR))
+	if (command == RR && (t->pre == RRA || t->pre == RRB || t->pre == RRR))
 		return (true);
-	if (command == RRA && (t->pre == RA))
+	if (command == RRA && (t->pre == RA || t->pre == RR || t->pre == RRB))
 		return (true);
-	if (command == RRB && (t->pre == RB))
+	if (command == RRB && (t->pre == RB || t->pre == RR || t->pre == RRA))
 		return (true);
-	if (command == RRR && (t->pre == RR))
+	if (command == RRR && (t->pre == RA || t->pre == RB || t->pre == RR))
 		return (true);
 	return (false);
 }
@@ -63,13 +63,6 @@ bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t)
 	if (command == RB && (b->next->value >= t->fin))
 		return (true);
 	if (command == RR && (a->next->value >= t->fin || b->next->value >= t->fin))
-		return (true);
-	if (command == RRA && (a->prev->value < t->awant))
-		return (true);
-	if (command == RRB && (b->prev->value < t->awant))
-		return (true);
-	if (command == RRR && (a->prev->value < t->awant ||
-	b->prev->value < t->awant))
 		return (true);
 	return (false);
 }
