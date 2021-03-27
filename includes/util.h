@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 07:47:49 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 09:35:29 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void			color_print(char buf[], long *i, char *str, char *color);
 void			put_info(char buf[], long *i, t_ps *ps, long height);
 void			put_turn(char buf[], long *i, long val);
 void			stack_memcpy(t_dlst *a, t_ps *ps, char buf[], long *i);
+void			print_sleep(long k);
 
 /*
 **  all_free
