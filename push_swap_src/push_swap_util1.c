@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 13:37:45 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:03:01 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	ans_update(long turn, t_allsort *t)
 {
 	long	i;
 
+	ft_putstr_fd("max_turn:");
+	ft_putnbr_fd(turn 2);
+	ft_putstr_fd("\n");
 	t->max_turn = turn;
 	i = -1;
 	while (++i < turn)
