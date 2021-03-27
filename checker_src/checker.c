@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 10:21:00 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 10:23:57 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	checker(int argc, char **argv)
 	if (ps->vflag)
 		debug(a, b, ps);
 	while ((ret = get_next_line(0, &line)) >= 0)
-		line_handler(line, ret)
 	{
 		print_sleep(10);
 		if (*line)
