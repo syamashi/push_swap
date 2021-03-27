@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 16:25:02 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:32:39 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	b_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	b_size = size;
 	a_addsize = 0;
 	pivot = ps->awant + (size - 1) / 2;
-	while (++i < size)
+	while (++i < size && b_size > SORTSIZE)
 	{
 		if (b->next->value == ps->awant && b_size-- && ++ps->awant)
 		{
