@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 15:49:49 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:56:47 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,11 +115,6 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 			b_quick_sort(a, b, ps, size);
 //		ft_putnbr_fd(ps->awant, 1);
 //		ft_putstr_fd("b\n", 1);
-		if (ps->awant == 96)
-		{
-			debug(a, b, ps);
-			break;
-		}
 		if (size)
 			allsort(a, b, ps, size);
 //		ft_putnbr_fd(ps->awant, 1);
@@ -134,6 +129,14 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 //		ft_putstr_fd("e\n", 1);
 		if (size)
 			a_quick_sort(a, b, ps, size);
+		if (ps->awant == 96)
+		{
+			debug(a, b, ps);
+			ft_putstr_fd("\n size:", 2);
+			ft_putnbr_fd(size, 2);
+			ft_putstr_fd("\n", 2);
+			break;
+		}
 //		ft_putnbr_fd(ps->awant, 1);
 //		ft_putstr_fd("f\n", 1);
 	}
