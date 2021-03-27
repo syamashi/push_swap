@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 10:40:18 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 17:46:12 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	print_judge(t_dlst *a, t_dlst *b)
 
 void	line_handler(t_dlst *a, t_dlst *b, char *line, t_ps *ps)
 {
-	print_sleep(10);
+	print_sleep(15);
 	if (*line)
 	{
 		change_dlst(a, b, get_command(line), true);
