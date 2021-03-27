@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 15:54:42 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:14:41 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	command = -1;
 	while (++command < 11)
 	{
-		if (avoid_check(command, t) || turn >= t->max_turn)
+		if (avoid_check(command, t) || turn >= t->max_turn - 1)
 			continue;
 		if (disturb_check(a, b, command, t))
 			continue;
@@ -95,7 +95,7 @@ void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 		t.tmp[i] = -1;
 		t.ans[i] = -1;
 	}
-	t.pre = -1;
+	t.pre = ps->ans->prev->value;
 	t.size = size;
 	t.awant = ps->awant;
 	if (b->next->value != -1)
