@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 13:52:02 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:03:09 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	a_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 			rra_addans(b, ps, RRB);
 		if (b->next->next->value == ps->awant)
 			sa_addans(b, ps, SB);
-		if (b->next->value == ps->awant)
+		if (b->next->value == ps->awant && (--i || 1))
 			pa_addans(a, b, ps, PA);
 		if (a->next->next->value == ps->awant &&
 		a->next->value == ps->awant + 1)
@@ -110,32 +110,36 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	half_set(a, b, ps);
 	while (ps->awant != ps->size)
 	{
-		print_sleep(10);
+		ft_putstr_fd("start bwant:", 1);
+		ft_putnbr_fd(ps->bwant, 1);
+		ft_putstr_fd(" awant:", 1);
+		ft_putnbr_fd(ps->awant, 1);
+		ft_putstr_fd("\n", 1);
 		b_settle_top(a, b, ps);
-//		debug(a, b, ps);
-//		ft_putstr_fd("[b_settle_top]", 1);
-//		ft_putnbr_fd(ps->awant, 1);
+		debug(a, b, ps);
+		ft_putstr_fd("[b_settle_top]", 1);
+		ft_putnbr_fd(ps->awant, 1);
 		while ((size = dlst_size(b)) > SORTSIZE)
 			b_quick_sort(a, b, ps, size);
-//		if (ps->awant == 55)
-//			break;
-//		debug(a, b, ps);
-//		ft_putstr_fd("b_quicksort", 1);
-//		ft_putnbr_fd(ps->awant, 1);
+		if (ps->awant == 55)
+			break;
+		debug(a, b, ps);
+		ft_putstr_fd("b_quicksort", 1);
+		ft_putnbr_fd(ps->awant, 1);
 		if (size)
 			allsort(a, b, ps, size);
-//		debug(a, b, ps);
-//		ft_putstr_fd("b_allsort", 1);
-//		ft_putnbr_fd(ps->awant, 1);
+		debug(a, b, ps);
+		ft_putstr_fd("b_allsort", 1);
+		ft_putnbr_fd(ps->awant, 1);
 		while ((size = search_a_size(a, ps)) && size <= SORTSIZE)
 			allsort(a, b, ps, size);
-//		debug(a, b, ps);
-//		ft_putstr_fd("a_allsort", 1);
-//		ft_putnbr_fd(ps->awant, 1);
+		debug(a, b, ps);
+		ft_putstr_fd("a_allsort", 1);
+		ft_putnbr_fd(ps->awant, 1);
 		if (size)
 			a_quick_sort(a, b, ps, size);
-//		debug(a, b, ps);
-//		ft_putstr_fd("a_quicksort", 1);
-//		ft_putnbr_fd(ps->awant, 1);
+		debug(a, b, ps);
+		ft_putstr_fd("a_quicksort", 1);
+		ft_putnbr_fd(ps->awant, 1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 00:16:14 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:01:49 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 	i += ps_memcpy(buf, i, "-------------------+-------------------\n");
 	buf[i] = 0;
 	ft_putstr_fd(buf, 2);
-	print_sleep(500000);
+	sleep(2);
+//	print_sleep(500000);
 }
