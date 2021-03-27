@@ -46,7 +46,7 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 }
 ```
 When 100args,
-
+```
 1. halfset, A[50~99], B[0~49]
 2. b_quick_sort, A[25~49 + 50~99], B[0~24]
 3. b_quick_sort, A[12~24 + 25~49 + 50~99], B[0~11]
@@ -62,3 +62,4 @@ When 100args,
 12. b_quick_sort, A[0...49], B[50~99]
 13. b_quick_sort, A[76~99 + 0...49], B[50~75]
 ...
+```
