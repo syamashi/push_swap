@@ -31,7 +31,7 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	long	size;
 
 	half_set(a, b, ps);
-  while (ps->awant != ps->size)
+	while (ps->awant != ps->size)
 	{
 		b_settle_top(a, b, ps);
 		while ((size = dlst_size(b)) > SORTSIZE)
@@ -45,3 +45,20 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	}
 }
 ```
+When 100args,
+
+1. halfset, A[50~99], B[0~49]
+2. b_quick_sort, A[25~49 + 50~99], B[0~24]
+3. b_quick_sort, A[12~24 + 25~49 + 50~99], B[0~11]
+4. b_quick_sort, A[6~11 + 12~24 + 25~49 + 50~99], B[0~5]
+5. b_quick_sort, A[4~5 + 6~11 + 12~24 + 25~49 + 50~99], B[0~3]
+6. allsort, A[0123 + 4~5 + 6~11 + 12~24 + 25~49 + 50~99], B[-]
+7. allsort, A[0123 + 45 + 6~11 + 12~24 + 25~49 + 50~99], B[-]
+8. a_quick_sort, A[0123 + 45 + 12~24 + 25~49 + 50~99], B[6~11]
+9. a_quick_sort, A[0123 + 45 + 9~11 + 12~24 + 25~49 + 50~99], B[6~8]
+10. a_quick_sort, A[0123 + 45 + 678 + 91011 + 12~24 + 25~49 + 50~99], B[-]
+... 
+11. a_quick_sort, A[0...49 + 50~99], B[-]
+12. b_quick_sort, A[0...49], B[50~99]
+13. b_quick_sort, A[76~99 + 0...49], B[50~75]
+...
