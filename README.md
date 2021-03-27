@@ -11,3 +11,15 @@ ARG_500: MAX=4920, AVG=4778
 less7: all_sort
 
 over6: quick_sort and a little optimisation.
+
+# usage
+
+1. only guacamole + bash works.
+
+2. -vc option visualizes
+
+```./push_swap -vc 100 10 0```
+
+```./checker -vc 100 10 0```
+
+```ARG="5 3 1 4 2"; ./push_swap $ARG | ./checker -vc $ARG```
