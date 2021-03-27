@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:30:31 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 16:54:54 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:59:56 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,4 @@ void	push_swap(long argc, char **argv);
 void	allsort_less7(t_dlst *a, t_dlst *b, t_ps *ps);
 void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps);
 void	ans_trance_dup(t_dlst *ans);
-void	ans_remove_dup(t_dlst *ans);
 #endif
