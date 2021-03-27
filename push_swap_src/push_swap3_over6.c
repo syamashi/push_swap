@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 14:42:18 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:46:56 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,28 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	half_set(a, b, ps);
 	while (ps->awant != ps->size)
 	{
+		ft_putnbr_fd(ps->awant, 1);
+		ft_putstr_fd("a\n", 1);
 		b_settle_top(a, b, ps);
 		while ((size = dlst_size(b)) > SORTSIZE)
 			b_quick_sort(a, b, ps, size);
+		ft_putnbr_fd(ps->awant, 1);
+		ft_putstr_fd("b\n", 1);
 		if (size)
 			allsort(a, b, ps, size);
+		ft_putnbr_fd(ps->awant, 1);
+		ft_putstr_fd("c\n", 1);
 		while ((size = dlst_size(b)) > SORTSIZE)
 			b_quick_sort(a, b, ps, size);
+		ft_putnbr_fd(ps->awant, 1);
+		ft_putstr_fd("d\n", 1);
 		while ((size = search_a_size(a, ps)) && size <= SORTSIZE)
 			allsort(a, b, ps, size);
+		ft_putnbr_fd(ps->awant, 1);
+		ft_putstr_fd("e\n", 1);
 		if (size)
 			a_quick_sort(a, b, ps, size);
+		ft_putnbr_fd(ps->awant, 1);
+		ft_putstr_fd("f\n", 1);
 	}
 }
