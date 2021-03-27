@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 14:03:09 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:06:09 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,8 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 		ft_putnbr_fd(ps->awant, 1);
 		while ((size = dlst_size(b)) > SORTSIZE)
 			b_quick_sort(a, b, ps, size);
-		if (ps->awant == 55)
-			break;
+//		if (ps->awant == 55)
+//			break;
 		debug(a, b, ps);
 		ft_putstr_fd("b_quicksort", 1);
 		ft_putnbr_fd(ps->awant, 1);
