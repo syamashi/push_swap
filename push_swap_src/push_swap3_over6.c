@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 13:35:36 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:52:02 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long	search_a_size(t_dlst *a, t_ps *ps)
 	t_dlst	*tmp;
 
 	size = 0;
-	max = -ARGLIMIT;
+	max = -ARGLIMIT - 10;
 	tmp = a->next;
 	while (max - ps->awant + 1 != size && tmp->value)
 	{
@@ -88,7 +88,7 @@ void	a_quick_sort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 			rra_addans(b, ps, RRB);
 		if (b->next->next->value == ps->awant)
 			sa_addans(b, ps, SB);
-		if (b->next->value == ps->awant && (--i || 1))
+		if (b->next->value == ps->awant)
 			pa_addans(a, b, ps, PA);
 		if (a->next->next->value == ps->awant &&
 		a->next->value == ps->awant + 1)
