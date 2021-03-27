@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 14:01:49 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:03:54 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 
 	ta = a->next;
 	tb = b->next;
-	ft_putstr_fd(CLEAR, 2);
+//	ft_putstr_fd(CLEAR, 2);
 	i = 0;
 	print_header(buf, &i, ps);
 	height = 0;
