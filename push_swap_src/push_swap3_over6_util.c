@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 13:38:18 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:48:43 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	allsort(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 		t.tmp[i] = -1;
 		t.ans[i] = -1;
 	}
-	t.pre = ps->ans->prev->value;
+	t.pre = -1;
 	t.size = size;
 	t.awant = ps->awant;
 	if (b->next->value != -1)
