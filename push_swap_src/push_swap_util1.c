@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/28 09:31:14 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/28 19:13:09 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ bool	avoid_check(long command, t_allsort *t)
 
 bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t)
 {
-	if (command == SA && (a->next->next->value >= t->fin))
+	if (command == SA && (a->next->next->value > t->awant))
 		return (true);
-	if (command == SB && (b->next->next->value >= t->fin))
+	if (command == SS && (a->next->next->value > t->awant))
 		return (true);
-	if (command == SS && (a->next->next->value >= t->fin ||
-	b->next->next->value >= t->fin))
+	if (command == RA && (a->next->value > t->awant))
 		return (true);
-	if (command == RA && (a->next->value >= t->fin))
+	if (command == RR && (a->next->value > t->awant))
 		return (true);
-	if (command == RR && (a->next->value >= t->fin || b->next->value >= t->fin))
+	if (command == RRA && (a->prev->value < t->awant))
+		return (true);
+	if (command == RRR && (a->prev->value < t->awant))
 		return (true);
 	return (false);
 }
