@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/28 19:13:09 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 00:00:57 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	avoid_check(long command, t_allsort *t)
 	return (false);
 }
 
-bool	disturb_check(t_dlst *a, t_dlst *b, long command, t_allsort *t)
+bool	disturb_check(t_dlst *a, long command, t_allsort *t)
 {
 	if (command == SA && (a->next->next->value > t->awant))
 		return (true);

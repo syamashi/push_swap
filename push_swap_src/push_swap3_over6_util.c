@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:39:13 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 18:09:59 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 00:01:15 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	a_dfs(t_dlst *a, t_dlst *b, t_allsort *t, long turn)
 	{
 		if (avoid_check(command, t) || turn >= t->max_turn - 1)
 			continue;
-		if (disturb_check(a, b, command, t))
+		if (disturb_check(a, command, t))
 			continue;
 		if (change_dlst(a, b, command, true))
 			continue;
