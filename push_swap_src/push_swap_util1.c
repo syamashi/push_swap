@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 23:03:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 00:00:57 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 00:10:34 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ bool	avoid_check(long command, t_allsort *t)
 		return (true);
 	if (command == PB && (t->pre == PA))
 		return (true);
-	if (command == RA && (t->pre == RB || t->pre == RRA || t->pre == RRR))
+	if (command == RA && (t->pre == RRA || t->pre == RRR))
 		return (true);
-	if (command == RB && (t->pre == RA || t->pre == RRB || t->pre == RRR))
+	if (command == RB && (t->pre == RRB || t->pre == RRR))
 		return (true);
 	if (command == RR && (t->pre == RRA || t->pre == RRB || t->pre == RRR))
 		return (true);
-	if (command == RRA && (t->pre == RA || t->pre == RR || t->pre == RRB))
+	if (command == RRA && (t->pre == RA || t->pre == RR))
 		return (true);
-	if (command == RRB && (t->pre == RB || t->pre == RR || t->pre == RRA))
+	if (command == RRB && (t->pre == RB || t->pre == RR))
 		return (true);
 	if (command == RRR && (t->pre == RA || t->pre == RB || t->pre == RR))
 		return (true);
