@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 00:19:06 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 00:20:29 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 			b_quick_sort(a, b, ps, size);
 		if (size)
 			allsort(a, b, ps, size);
-		while ((size = dlst_size(b)) > SORTSIZE)
-			b_quick_sort(a, b, ps, size);
 		while ((size = search_a_size(a, ps)) && size <= SORTSIZE)
 			allsort(a, b, ps, size);
 		if (size)
