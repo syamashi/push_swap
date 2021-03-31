@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 16:37:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 15:28:34 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 15:31:50 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ans_trance_longcut(t_dlst *ans)
 	}
 }
 
-void	dlst_delone(t_dlst *dlst)
+t_dlst	*dlst_delone(t_dlst *dlst)
 {
 	t_dlst	*prev1;
 	t_dlst	*next1;
@@ -57,6 +57,7 @@ void	dlst_delone(t_dlst *dlst)
 	free(dlst);
 	prev1->next = next1;
 	next1->prev = prev1;
+	return (next1);
 }
 
 void	ans_remove_redo(t_dlst *ans)
@@ -74,8 +75,8 @@ void	ans_remove_redo(t_dlst *ans)
 			del = true;
 		if (del)
 		{
-			dlst_delone(tmp);
-			dlst_delone(tmp);
+			tmp = dlst_delone(tmp);
+			tmp = dlst_delone(tmp);
 			tmp = tmp->prev->prev;
 		}
 		tmp = tmp->next;
