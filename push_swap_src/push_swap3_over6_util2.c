@@ -6,13 +6,13 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:12:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 16:07:22 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:08:10 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-bool	bwant_keep(t_dlst *b, t_ps *ps)
+bool	bwant_keep(t_dlst *b, t_ps *ps, long b_size)
 {
 	ps->bwant++;
 	if (b_size == 1)
@@ -49,7 +49,7 @@ void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 	while (++i < ps->size && b_size < ps->size / 2)
 	{
 		while (b->next->value == ps->bwant)
-			if (bwant_keep(b, ps))
+			if (bwant_keep(b, ps, b_size))
 				break;
 		if (b->next->value == ps->bwant + 1 && !bwant_lest(b, ps) && b_size > 1)
 			ra_addans(b, ps, RB);
