@@ -1,10 +1,9 @@
 # How fast?
 ARG_5  : MAX=8, AVG=5
 
-ARG_100: MAX=689, AVG=636
+ARG_100: MAX=680, AVG=626
 
-ARG_500: MAX=4920, AVG=4778
-
+ARG_500: MAX=4878, AVG=4732
 (2000 trials)
 
 # How sort?
