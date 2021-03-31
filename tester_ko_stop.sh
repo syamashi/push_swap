@@ -12,7 +12,7 @@ ERROR_FILE="something_wrong.txt"
 while [ "$INDEX" -lt "$COUNT" ]
 do
 
-ARG=`jot -r -s " " 500 -2147483648 2147483647`
+ARG=`jot -r -s " " 100 -2147483648 2147483647`
 RES=$(./push_swap $ARG | ./checker $ARG | xargs echo -n)
 echo $RES
 TMP=`./push_swap $ARG | wc -l`
