@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:33 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/28 00:01:40 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 12:45:42 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	checker(int argc, char **argv)
 	ps = ps_init(argc, argv);
 	a = make_dlst(ps);
 	b = dlst_def();
+	if (a->next->value == -1)
+		return (all_free(a, b, ps));
 	if (ps->vflag)
 		debug(a, b, ps);
 	while ((ret = get_next_line(0, &line)) >= 0)
