@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 18:09:04 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 13:43:29 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,7 @@
 # define SORTSIZE 4
 # define SORT_VALUE 0
 # define SORT_ID 1
-# define PA 0
-# define PB 1
-# define SA 2
-# define SB 3
-# define SS 4
-# define RA 5
-# define RB 6
-# define RR 7
-# define RRA 8
-# define RRB 9
-# define RRR 10
+
 # define STACK_WIDTH 18
 # define INFO_WIDTH 8
 # define CLEAR "\033[2J"
@@ -51,6 +41,21 @@
 # define WHITE_BACK "\033[47m"
 # define DEFCOLOR_BACK "\033[49m"
 # define TURNMAX 41
+
+typedef enum	e_cmd
+{
+	PA,
+	PB,
+	SA,
+	SB,
+	SS,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+}				t_cmd;
 
 typedef	struct	s_dlst
 {

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 23:49:31 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 13:44:27 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,5 @@ void	push_swap(long argc, char **argv)
 	if (ps->vflag)
 		ans_visualize(argc, argv, ps);
 	ans_print(ps->ans);
-	dlst_clear(ps->ans);
-	free(ps);
-	dlst_clear(a);
-	dlst_clear(b);
+	all_free(a, b, ps);
 }
