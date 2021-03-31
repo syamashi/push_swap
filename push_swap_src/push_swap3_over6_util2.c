@@ -6,13 +6,13 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:12:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 16:00:18 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:06:45 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-bool	bwant_keep(t_dlst *a, t_dlst *b, t_ps *ps)
+bool	bwant_keep(t_dlst *b, t_ps *ps)
 {
 	ps->bwant++;
 	if (b_size == 1)
