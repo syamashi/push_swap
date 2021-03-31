@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:07:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 18:08:30 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 14:45:32 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	print_header(char buf[], long *i, t_ps *ps)
 {
 	if (ps->cflag)
 	{
-		inversion_print(buf, i, "----------A--------+--------B---------+");
+		inversion_print(buf, i, "+---------A--------+--------B---------+");
 		inversion_print(buf, i, "-NEXT-");
 		*i += ps_memcpy(buf, *i, " ");
 	}
 	else
 	{
-		*i += ps_memcpy(buf, *i, "----------A--------+--------B---------+");
+		*i += ps_memcpy(buf, *i, "+---------A--------+--------B---------+");
 		*i += ps_memcpy(buf, *i, "-NEXT-");
 	}
 	*i += ps_memcpy(buf, *i, "\n");
@@ -77,7 +77,7 @@ void	debug(t_dlst *a, t_dlst *b, t_ps *ps)
 		prompt_dlst(&ta, &tb);
 		i += ps_memcpy(buf, i, "\n");
 	}
-	i += ps_memcpy(buf, i, "-------------------+-------------------\n");
+	i += ps_memcpy(buf, i, "+------------------+------------------+\n");
 	buf[i] = 0;
 	ft_putstr_fd(buf, 2);
 	print_sleep(500000);
