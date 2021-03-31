@@ -6,11 +6,38 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:12:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/27 17:55:44 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:00:18 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+bool	bwant_keep(t_dlst *a, t_dlst *b, t_ps *ps)
+{
+	ps->bwant++;
+	if (b_size == 1)
+		return (true);
+	if (b->prev->value == ps->bwant)
+		ps->bwant++;
+	ra_addans(b, ps, RB);
+	return (false);
+}
+
+bool	bwant_left(t_dlst *b, t_ps *ps)
+{
+	t_dlst	*tmp;
+	long	begin;
+
+	begin = b->value;
+	tmp = b->next;
+	while (tmp->value != begin)
+	{
+		if (tmp->value == ps->bwant)
+			return (true);
+		tmp = tmp->next;
+	}
+	return (false);
+}
 
 void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 {
@@ -22,12 +49,10 @@ void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 	while (++i < ps->size && b_size < ps->size / 2)
 	{
 		while (b->next->value == ps->bwant)
-		{
-			ps->bwant++;
-			if (b_size == 1)
-				break ;
+			if (bwant_keep(a, b, ps))
+				break;
+		if (b->next->value == ps->bwant + 1 && !bwant_lest(b, ps) && b_size > 1)
 			ra_addans(b, ps, RB);
-		}
 		if (a->next->value < (ps->size / 2))
 		{
 			pa_addans(b, a, ps, PB);

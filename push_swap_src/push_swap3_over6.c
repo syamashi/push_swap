@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:58:34 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 13:43:52 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:05:37 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void	b_settle_top(t_dlst *a, t_dlst *b, t_ps *ps)
 	{
 		if (b->prev->value == ps->bwant - i - 1)
 			rra_addans(b, ps, RRB);
+		else if (b->prev->prev->value == ps->bwant - i - 1)
+		{
+			rra_addans(b, ps, RRB);
+			rra_addans(b, ps, RRB);
+		}
 		if (b->next->value == ps->bwant - i - 1)
 			pa_addans(a, b, ps, PA);
 	}
