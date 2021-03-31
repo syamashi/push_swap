@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:12:23 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 16:06:45 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:07:22 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	half_set(t_dlst *a, t_dlst *b, t_ps *ps)
 	while (++i < ps->size && b_size < ps->size / 2)
 	{
 		while (b->next->value == ps->bwant)
-			if (bwant_keep(a, b, ps))
+			if (bwant_keep(b, ps))
 				break;
 		if (b->next->value == ps->bwant + 1 && !bwant_lest(b, ps) && b_size > 1)
 			ra_addans(b, ps, RB);
