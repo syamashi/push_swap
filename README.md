@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/60595852/113107518-ff131380-923e-11eb-8293-961afa00865c.JPG
+
 # How fast?
 ARG_5  : MAX=8, AVG=5
 
