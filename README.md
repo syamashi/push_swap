@@ -6,6 +6,7 @@ ARG_5  : MAX=8, AVG=5
 ARG_100: MAX=680, AVG=626
 
 ARG_500: MAX=4878, AVG=4732
+
 (2000 trials)
 
 # How sort?
@@ -59,7 +60,7 @@ When 100args,
 9. a_quick_sort, A[0123 + 45 + 9~11 + 12~24 + 25~49 + 50~99], B[6~8]
 10. a_quick_sort, A[0123 + 45 + 678 + 91011 + 12~24 + 25~49 + 50~99], B[-]
 ... 
-11. a_quick_sort, A[0...49 + 50~99], B[-]
+11. a_quick_sort, A[50~99 + 0...49], B[-]
 12. b_quick_sort, A[0...49], B[50~99]
 13. b_quick_sort, A[76~99 + 0...49], B[50~75]
 ...
