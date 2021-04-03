@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/31 13:43:29 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:50:34 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ long			recover(long command);
 */
 
 bool			sa(t_dlst *a);
+bool			ss(t_dlst *a, t_dlst *b);
 bool			pa(t_dlst *a, t_dlst *b);
 bool			ra(t_dlst *a);
 bool			rra(t_dlst *a);
