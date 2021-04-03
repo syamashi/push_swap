@@ -6,7 +6,7 @@
 #    By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 14:45:49 by syamashi          #+#    #+#              #
-#    Updated: 2021/03/27 18:19:23 by syamashi         ###   ########.fr        #
+#    Updated: 2021/03/31 16:48:16 by syamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,4 +33,6 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus : all
+
+.PHONY: all clean fclean re bonus
