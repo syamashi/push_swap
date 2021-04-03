@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:38:11 by syamashi          #+#    #+#             */
-/*   Updated: 2021/04/03 14:50:34 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:54:31 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define EMPHASIZE "\033[1m"
 # define WHITE_BACK "\033[47m"
 # define DEFCOLOR_BACK "\033[49m"
-# define TURNMAX 41
+# define TURNMAX 39
 
 typedef enum	e_cmd
 {
