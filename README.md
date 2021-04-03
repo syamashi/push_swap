@@ -46,6 +46,9 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 			a_quick_sort(a, b, ps, size);
 	}
 }
+
+https://vimeo.com/532578620
+
 ```
 When 100args,
 ```
