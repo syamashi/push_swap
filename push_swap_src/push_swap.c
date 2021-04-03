@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:02:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/04/03 12:41:00 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:41:43 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	push_swap(long argc, char **argv)
 	a = make_dlst(ps);
 	b = dlst_def();
 	if (a->next->value == -1)
-    	return (all_free(a, b, ps));
+		return (all_free(a, b, ps));
 	else if (is_sorted(a))
 		;
 	else if (ps->size < 7)
