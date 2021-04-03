@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 20:16:37 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 00:13:15 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:42:36 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,20 @@
 
 bool	rr(t_dlst *a, t_dlst *b)
 {
-	return (b->next->next->value == -1 || ra(a) || ra(b));
+	bool	exec;
+
+	exec = false;
+	exec |= ra(a);
+	exec |= ra(b);
+	return (exec);
 }
 
 bool	rrr(t_dlst *a, t_dlst *b)
 {
-	return (b->next->next->value == -1 || rra(a) || rra(b));
+	bool	exec;
+
+	exec = false;
+	exec |= rra(a);
+	exec |= rra(b);
+	return (exec);
 }
