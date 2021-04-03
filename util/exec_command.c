@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:33:39 by syamashi          #+#    #+#             */
-/*   Updated: 2021/03/25 13:34:11 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:45:33 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ bool	change_dlst(t_dlst *a, t_dlst *b, long command, bool exec)
 	if (command == RB)
 		return (ra(b));
 	if (command == RR)
-		return (b->next->next->value == -1 || ra(a) || ra(b));
+		return (rr(a, b));
 	if (command == RRA)
 		return (rra(a));
 	if (command == RRB)
 		return (rra(b));
 	if (command == RRR)
-		return (b->next->next->value == -1 || rra(a) || rra(b));
+		return (rrr(a, b));
 	return (true);
 }
