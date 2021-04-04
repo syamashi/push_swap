@@ -1,3 +1,6 @@
+
+https://vimeo.com/532578620
+
 ![キャプチャ](https://user-images.githubusercontent.com/60595852/113107518-ff131380-923e-11eb-8293-961afa00865c.JPG)
 
 # How fast?
@@ -47,9 +50,6 @@ void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
 	}
 }
 ```
-
-https://vimeo.com/532578620
-
 When 100args,
 ```
 1. halfset, A[50~99], B[0~49]
