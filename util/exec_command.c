@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:33:39 by syamashi          #+#    #+#             */
-/*   Updated: 2021/04/03 14:51:27 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/04/04 11:42:56 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool	change_dlst(t_dlst *a, t_dlst *b, long command, bool exec)
 	if (command == SB)
 		return (sa(b));
 	if (command == SS)
-		return (ss(a, b));
+		return (ss_stop(a, b));
 	if (command == PA)
 		return (pa(a, b));
 	if (command == PB)
@@ -52,12 +52,12 @@ bool	change_dlst(t_dlst *a, t_dlst *b, long command, bool exec)
 	if (command == RB)
 		return (ra(b));
 	if (command == RR)
-		return (rr(a, b));
+		return (rr_stop(a, b));
 	if (command == RRA)
 		return (rra(a));
 	if (command == RRB)
 		return (rra(b));
 	if (command == RRR)
-		return (rrr(a, b));
+		return (rrr_stop(a, b));
 	return (true);
 }
