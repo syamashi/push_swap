@@ -32,20 +32,20 @@ if [ $TMP -gt $MAX5 ] ; then
     MAX5=$TMP
     echo $ARG > $FILE0
 fi
-if [ "$RESULT" == "OK" ]
-then
-	echo -n "${GREEN}[OK]   ${END}"
-elif [ "$RESULT" == "KO" ] ; then
-	echo "${RED}[KO]   ${END}"
-    echo $ARG > $FILE_ERROR;
-	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
-	exit 0;
-else
-	echo "${RED}[Error]${END}"
-    echo $ARG > $FILE_ERROR;
-	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
-	exit 0;
-fi
+#if [ "$RESULT" == "OK" ]
+#then
+#	echo -n "${GREEN}[OK]   ${END}"
+#elif [ "$RESULT" == "KO" ] ; then
+#	echo "${RED}[KO]   ${END}"
+#    echo $ARG > $FILE_ERROR;
+#	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
+#	exit 0;
+#else
+#	echo "${RED}[Error]${END}"
+#    echo $ARG > $FILE_ERROR;
+#	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
+#	exit 0;
+#fi
 echo -n "$TMP  "
 let AVG5+=TMP 
 
@@ -56,20 +56,20 @@ if [ $TMP -gt $MAX100 ] ; then
     MAX100=$TMP
     echo $ARG > $FILE1
 fi
-if [ "$RESULT" == "OK" ]
-then
-	echo -n "${GREEN}[OK]   ${END}"
-elif [ "$RESULT" == "KO" ] ; then
-	echo "${RED}[KO]   ${END}"
-	echo $ARG > $FILE_ERROR;
-	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
-	exit 0;
-else
-	echo "${RED}[Error]${END}"
-	echo $ARG > $FILE_ERROR;
-	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
-	exit 0;
-fi
+#if [ "$RESULT" == "OK" ]
+#then
+#	echo -n "${GREEN}[OK]   ${END}"
+#elif [ "$RESULT" == "KO" ] ; then
+#	echo "${RED}[KO]   ${END}"
+#	echo $ARG > $FILE_ERROR;
+#	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
+#	exit 0;
+#else
+#	echo "${RED}[Error]${END}"
+#	echo $ARG > $FILE_ERROR;
+#	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
+#	exit 0;
+#fi
 echo -n "$TMP  "
 let AVG100+=TMP 
 
@@ -80,20 +80,20 @@ if [ $TMP -gt $MAX500 ] ; then
     MAX500=$TMP
     echo $ARG > $FILE2
 fi
-if [ "$RESULT" == "OK" ]
-then
-	echo -n "${GREEN}[OK]   ${END}"
-elif [ "$RESULT" == "KO" ] ; then
-	echo "${RED}[KO]   ${END}"
-	echo $ARG > $FILE_ERROR;
-	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
-	exit 0;
-else
-	echo "${RED}[Error]${END}"
-	echo $ARG > $FILE_ERROR;
-	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
-	exit 0;
-fi
+#if [ "$RESULT" == "OK" ]
+#then
+#	echo -n "${GREEN}[OK]   ${END}"
+#elif [ "$RESULT" == "KO" ] ; then
+#	echo "${RED}[KO]   ${END}"
+#	echo $ARG > $FILE_ERROR;
+#	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
+#	exit 0;
+#else
+#	echo "${RED}[Error]${END}"
+#	echo $ARG > $FILE_ERROR;
+#	echo "./push_swap \`cat $FILE_ERROR\` | wc -l"
+#	exit 0;
+#fi
 
 echo "$TMP"
 let AVG500+=TMP 
